@@ -15,6 +15,7 @@ gem 'uglifier',                '>= 1.3.0'
 gem 'coffee-rails',            '~> 4.2'
 gem 'turbolinks',              '~> 5'
 gem 'figaro' ,                 '~> 1.1'
+gem 'unsplash',                '~> 1.5', '>= 1.5.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
