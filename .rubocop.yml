@@ -1,0 +1,13 @@
+inherit_from: ../.rubocop.yml
+
+inherit_gem:
+  rubocop-rails:
+    - config/rails.yml
+
+# Checks if uses of quotes match the configured preference.
+Style/StringLiterals:
+  Enabled: false
+
+# Documentation comments in classes and modules.
+Style/Documentation:
+  Enabled: false
