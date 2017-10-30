@@ -1,3 +1,6 @@
 <h1><%= link_to "draw", root_path %></h1>
 
 <%= image_tag(@photo.urls.regular) %>
+
+Photo by <%= link_to @photo.user.name, @photo.user.links.html %> /
+  <%= link_to "Unsplash", "https://unsplash.com/" %>
