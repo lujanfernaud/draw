@@ -1,26 +1,22 @@
 class PhotosController < ApplicationController
-  before_action :save_reference, :check_reference, only: :show
+  before_action :check_reference, only: :show
 
   def index
   end
 
   def show
-    @request = Request.find_by(reference: @reference)
+    @request = Request.find_by(reference: params[:id])
 
     if @request
       @request.update unless @request.updated_today?
     else
-      @request = Request.create!(reference: @reference)
+      @request = Request.create!(reference: params[:id])
     end
 
     @photo = @request.photo
   end
 
   private
-
-    def save_reference
-      @reference = params[:id]
-    end
 
     def check_reference
       redirect_to root_path unless valid_reference?
