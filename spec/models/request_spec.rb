@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Request, type: :model do
-  let(:request) { Request.create!(reference: "animal") }
+  let(:request) { Request.create!(query: "animal") }
 
   describe "#photo" do
     before do

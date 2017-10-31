@@ -2,7 +2,7 @@ class Request < ApplicationRecord
   serialize     :results
   before_create :assign_results
 
-  def self.allowed_references
+  def self.allowed_queries
     ["female",
      "male",
      "face",
@@ -29,10 +29,10 @@ class Request < ApplicationRecord
   private
 
     def assign_results
-      self.results = get_results_for_reference
+      self.results = get_results_for_query
     end
 
-    def get_results_for_reference
+    def get_results_for_query
       YAML.dump(get_pages)
     end
 
@@ -41,7 +41,7 @@ class Request < ApplicationRecord
     end
 
     def get_page(page_number)
-      Unsplash::Photo.search(reference, page = page_number, per_page = 30)
+      Unsplash::Photo.search(query, page = page_number, per_page = 30)
     end
 
     def prepare_photo

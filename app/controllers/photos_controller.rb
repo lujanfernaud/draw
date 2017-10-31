@@ -1,16 +1,16 @@
 class PhotosController < ApplicationController
-  before_action :check_reference, only: :show
+  before_action :check_query, only: :show
 
   def index
   end
 
   def show
-    @request = Request.find_by(reference: params[:id])
+    @request = Request.find_by(query: params[:id])
 
     if @request
       @request.update unless @request.updated_today?
     else
-      @request = Request.create!(reference: params[:id])
+      @request = Request.create!(query: params[:id])
     end
 
     @photo = @request.photo
@@ -18,11 +18,11 @@ class PhotosController < ApplicationController
 
   private
 
-    def check_reference
-      redirect_to root_path unless valid_reference?
+    def check_query
+      redirect_to root_path unless valid_query?
     end
 
-    def valid_reference?
-      Request.allowed_references.include?(params[:id])
+    def valid_query?
+      Request.allowed_queries.include?(params[:id])
     end
 end
