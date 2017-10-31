@@ -1,17 +1,6 @@
 class PhotosController < ApplicationController
   before_action :save_reference, :check_reference, only: :show
 
-  REFERENCES = [
-    "female",
-    "male",
-    "face",
-    "animal",
-    "flower",
-    "house",
-    "object",
-    "landscape"
-  ].freeze
-
   def index
   end
 
@@ -38,6 +27,6 @@ class PhotosController < ApplicationController
     end
 
     def valid_reference?
-      REFERENCES.include?(@reference)
+      Request.allowed_references.include?(params[:id])
     end
 end

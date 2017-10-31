@@ -2,6 +2,17 @@ class Request < ApplicationRecord
   serialize     :results
   before_create :assign_results
 
+  def self.allowed_references
+    ["female",
+     "male",
+     "face",
+     "animal",
+     "flower",
+     "house",
+     "object",
+     "landscape"].freeze
+  end
+
   def photo
     prepare_photo
     @selected_photo

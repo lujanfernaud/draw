@@ -25,5 +25,10 @@ RSpec.describe PhotosController, type: :controller do
       get :show, params: { id: "animal" }
       expect(response).to render_template("show")
     end
+
+    it "redirects to root url if the reference is not allowed" do
+      get :show, params: { id: "astro" }
+      expect(response).to redirect_to(root_url)
+    end
   end
 end
