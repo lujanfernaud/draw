@@ -9,7 +9,6 @@ class Request < ApplicationRecord
      "animal",
      "flower",
      "house",
-     "object",
      "landscape"].freeze
   end
 
