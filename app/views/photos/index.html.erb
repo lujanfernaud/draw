@@ -1,28 +1,33 @@
-<h1><%= link_to "draw", root_path %></h1>
+<main class="container h-100" role="main">
+  <div class="row h-100 align-items-center">
+    <div class="col">
 
-<ul>
-  <li>
-    <%= link_to "female", "/photos/female" %>
-  </li>
-  <li>
-    <%= link_to "male", "/photos/male" %>
-  </li>
-  <li>
-    <%= link_to "face", "/photos/face" %>
-  </li>
-  <li>
-    <%= link_to "animal", "/photos/animal" %>
-  </li>
-  <li>
-    <%= link_to "flower", "/photos/flower" %>
-  </li>
-  <li>
-    <%= link_to "house", "/photos/house" %>
-  </li>
-  <li>
-    <%= link_to "object", "/photos/object" %>
-  </li>
-  <li>
-    <%= link_to "landscape", "/photos/landscape" %>
-  </li>
-</ul>
+      <div class="row">
+        <div class="col text-center">
+          <h1 class="mt-4 mb-4">draw</h1>
+          <p class="slogan mt-4 mb-4">Focus on drawing.</p>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col text-center">
+          <%= link_to "female", "/photos/female",
+            class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+          <%= link_to "male", "/photos/male",
+            class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+          <%= link_to "face", "/photos/face",
+            class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+          <%= link_to "animal", "/photos/animal",
+            class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+          <%= link_to "flower", "/photos/flower",
+            class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+          <%= link_to "house", "/photos/house",
+            class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+          <%= link_to "landscape", "/photos/landscape",
+            class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>

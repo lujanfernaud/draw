@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Draw</title>
+    <title>draw</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,10 @@
   </head>
 
   <body>
+    <%= render "header" unless current_page?(root_url) %>
+
     <%= yield %>
+
+    <%= render "footer" unless current_page?(root_url) %>
   </body>
 </html>

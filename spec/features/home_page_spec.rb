@@ -5,6 +5,7 @@ RSpec.feature "Home page", type: :feature do
     visit root_url
 
     expect(page).to have_text("draw")
+    expect(page).to have_css(".slogan")
     expect_page_to_have_links_to_queries
   end
 
