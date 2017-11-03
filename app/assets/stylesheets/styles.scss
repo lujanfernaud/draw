@@ -36,7 +36,21 @@ a:hover {
 // -------
 
 
+.cover .logo {
+  width: 22%;
+}
+
+.navbar .logo {
+  width: 100%;
+}
+
+.logo__text {
+  fill: $light;
+}
+
 .slogan {
+  margin-top: 2.4rem !important;
+  margin-bottom: 2.1rem !important;
   font-size: 1.25rem;
 }
 
@@ -73,8 +87,9 @@ a:hover {
 }
 
 .navbar-brand {
-  font-size: 2rem;
-  color: $light !important;
+  margin-top: .5rem !important;
+  margin-bottom: .15rem !important;
+  width: 6%;
 }
 
 .btn-outline-secondary {
