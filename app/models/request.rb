@@ -60,7 +60,7 @@ class Request < ApplicationRecord
     end
 
     def parsed_results
-      YAML.load(results).shuffle
+      YAML.load(results)
     end
 
     def photo_has_been_visited?
