@@ -23,6 +23,7 @@ class Request < ApplicationRecord
 
   def update
     assign_results
+    clear_visited_photos
   end
 
   private
