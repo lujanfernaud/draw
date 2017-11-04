@@ -36,12 +36,16 @@ class Request < ApplicationRecord
       YAML.dump(get_pages)
     end
 
+    # We choose a random page from four different groups,
+    # with some pages in between, to try to increase the randomness.
+    #
     def get_pages
-      get_page(rand(1..9)) + get_page(rand(10..19)) + get_page(rand(20..30))
+      get_page(rand(1..10)) + get_page(rand(15..25)) +
+        get_page(rand(30..40)) + get_page(rand(45..55))
     end
 
     def get_page(page_number)
-      Unsplash::Photo.search(query, page = page_number, per_page = 30)
+      Unsplash::Photo.search(query, page = page_number, per_page = 15)
     end
 
     def prepare_photo
