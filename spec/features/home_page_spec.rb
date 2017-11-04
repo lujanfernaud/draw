@@ -6,14 +6,13 @@ RSpec.feature "Home page", type: :feature do
 
     expect(page).to have_text("draw")
     expect(page).to have_css(".slogan")
-    expect_page_to_have_links_to_queries
+
+    expect(page).to have_selector(:link_or_button, "female")
+    expect(page).to have_selector(:link_or_button, "male")
+    expect(page).to have_selector(:link_or_button, "face")
+    expect(page).to have_selector(:link_or_button, "animal")
+    expect(page).to have_selector(:link_or_button, "flower")
+    expect(page).to have_selector(:link_or_button, "home")
+    expect(page).to have_selector(:link_or_button, "landscape")
   end
-
-  private
-
-    def expect_page_to_have_links_to_queries
-      Request.allowed_queries.each do |query|
-        expect(page).to have_selector(:link_or_button, query)
-      end
-    end
 end

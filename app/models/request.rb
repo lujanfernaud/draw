@@ -3,12 +3,12 @@ class Request < ApplicationRecord
   before_create :assign_results
 
   def self.allowed_queries
-    ["female",
-     "male",
-     "face",
+    ["woman-girl",
+     "man-boy",
+     "face-woman-girl-man-boy",
      "animal",
      "flower",
-     "house",
+     "home",
      "landscape"].freeze
   end
 
