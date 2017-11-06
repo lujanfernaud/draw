@@ -32,27 +32,42 @@ a:hover {
   background-color: $light;
 }
 
+.logo__text {
+  fill: $light;
+}
 
-// Content
-// -------
 
+// Cover
+// -----
+
+
+.cover-image {
+  background-image: url("/jj-ying-215319.jpg");
+  background-size: cover;
+}
+
+.color-overlay {
+  background-color: $dark;
+  opacity: 0.933;
+}
 
 .cover .logo {
   width: 22%;
-}
-
-.navbar .logo {
-  width: 100%;
-}
-
-.logo__text {
-  fill: $light;
 }
 
 .slogan {
   margin-top: 2.4rem !important;
   margin-bottom: 2.1rem !important;
   font-size: 1.25rem;
+}
+
+
+// Content
+// -------
+
+
+.navbar .logo {
+  width: 100%;
 }
 
 .photo-credit {
