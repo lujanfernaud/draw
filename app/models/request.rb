@@ -40,12 +40,12 @@ class Request < ApplicationRecord
     # with some pages in between, to try to increase the randomness.
     #
     def get_pages
-      get_page(rand(1..10)) + get_page(rand(15..25)) +
-        get_page(rand(30..40)) + get_page(rand(45..55))
+      get_page(rand(1..20)) + get_page(rand(25..45)) +
+        get_page(rand(50..70)) + get_page(rand(75..95))
     end
 
     def get_page(page_number)
-      Unsplash::Photo.search(query, page = page_number, per_page = 15)
+      Unsplash::Photo.search(query, page = page_number, per_page = 6)
     end
 
     def prepare_photo
