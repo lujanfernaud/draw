@@ -1,5 +1,7 @@
 {
   "name": "draw",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "lazyload": "^2.0.0-beta.2"
+  }
 }

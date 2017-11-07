@@ -70,6 +70,10 @@ a:hover {
   width: 100%;
 }
 
+img.lazyload {
+  width: 100% !important;
+}
+
 .photo-credit {
   color: $light-grey;
   a {

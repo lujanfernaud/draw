@@ -1,10 +1,10 @@
 <main class="container flex-grow" role="main">
 
-  <div class="row">
+  <div class="row" data-turbolinks="false">
     <div class="col">
       <a href="<%= photo_url %>">
-        <%= image_tag @photo.urls.regular, class: "img-fluid",
-          alt: "#{ @request.query } photo" %>
+        <img class="lazyload img-fluid" src="<%= @photo.urls.thumb %>"
+          data-src="<%= @photo.urls.regular %>" alt="<%= @request.query %>">
       </a>
     </div>
   </div>
