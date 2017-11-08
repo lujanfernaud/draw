@@ -34,12 +34,40 @@ class Request < ApplicationRecord
 
   private
 
-    def clear_current_pages
-      update_column(:current_pages, [])
+    def prepare_photo
+      select_photo
+      add_selected_photo_to_visited_photos
+      clear_visited_photos if all_photos_have_been_visited?
+    end
+
+    def select_photo
+      assign_photo
+      assign_photo while visited_photos.include?(@selected_photo.id)
+    end
+
+    def assign_photo
+      @selected_photo = parsed_results.sample
+    end
+
+    def parsed_results
+      YAML.load(results)
+    end
+
+    def add_selected_photo_to_visited_photos
+      visited_photos << @selected_photo.id
+      save!
     end
 
     def clear_visited_photos
       update_column(:visited_photos, [])
+    end
+
+    def all_photos_have_been_visited?
+      (parsed_results.size - visited_photos.size).zero?
+    end
+
+    def clear_current_pages
+      update_column(:current_pages, [])
     end
 
     def assign_request_results
@@ -87,33 +115,5 @@ class Request < ApplicationRecord
 
     def get_page(page_number)
       Unsplash::Photo.search(query, page = page_number, per_page = 7)
-    end
-
-    def prepare_photo
-      select_photo
-      add_selected_photo_to_visited_photos
-      clear_visited_photos if all_photos_have_been_visited?
-    end
-
-    def select_photo
-      assign_photo
-      assign_photo while visited_photos.include?(@selected_photo.id)
-    end
-
-    def assign_photo
-      @selected_photo = parsed_results.sample
-    end
-
-    def parsed_results
-      YAML.load(results)
-    end
-
-    def add_selected_photo_to_visited_photos
-      visited_photos << @selected_photo.id
-      save!
-    end
-
-    def all_photos_have_been_visited?
-      (parsed_results.size - visited_photos.size).zero?
     end
 end
