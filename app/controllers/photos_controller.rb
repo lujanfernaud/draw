@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
     @request = Request.find_by(query: params[:id])
 
     if @request
-      @request.update unless @request.updated_today?
+      @request.update_photos unless @request.updated_today?
     else
       @request = Request.create!(query: params[:id])
     end

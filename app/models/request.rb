@@ -2,6 +2,10 @@ class Request < ApplicationRecord
   serialize     :results
   before_create :assign_results
 
+  FIRST_PAGE  = 1
+  LAST_PAGE   = 115
+  PAGE_RANGES = [FIRST_PAGE..25, 30..55, 60..85, 90..LAST_PAGE]
+
   def self.allowed_queries
     ["woman-girl",
      "man-boy",
@@ -21,27 +25,64 @@ class Request < ApplicationRecord
     updated_at.today?
   end
 
-  def update
-    assign_results
+  def update_photos
+    clear_current_pages
     clear_visited_photos
+    assign_results
+    save!
   end
 
   private
+
+    def clear_current_pages
+      update_column(:current_pages, [])
+    end
+
+    def clear_visited_photos
+      update_column(:visited_photos, [])
+    end
 
     def assign_results
       self.results = get_results_for_query
     end
 
     def get_results_for_query
-      YAML.dump(get_pages)
+      prepare_pages
+      YAML.dump(pages)
     end
 
-    # We choose a random page from four different groups,
-    # with some pages in between, to try to increase the randomness.
-    #
-    def get_pages
-      get_page(rand(1..20)) + get_page(rand(25..45)) +
-        get_page(rand(50..70)) + get_page(rand(75..95))
+    def prepare_pages
+      prepare_current_pages
+      prepare_previous_pages
+    end
+
+    def prepare_current_pages
+      PAGE_RANGES.each do |page_range|
+        current_pages << select_page_in(page_range)
+      end
+    end
+
+    def select_page_in(range)
+      page = rand(range)
+      page = rand(range) while previous_pages.include?(page)
+      page
+    end
+
+    def prepare_previous_pages
+      update_column(:previous_pages, []) if persisted?
+
+      current_pages.each do |page|
+        previous_pages << page - 1 unless page == FIRST_PAGE
+        previous_pages << page
+        previous_pages << page + 1 unless page == LAST_PAGE
+      end
+    end
+
+    def pages
+      get_page(current_pages.first)    +
+        get_page(current_pages.second) +
+        get_page(current_pages.third)  +
+        get_page(current_pages.fourth)
     end
 
     def get_page(page_number)
@@ -73,11 +114,7 @@ class Request < ApplicationRecord
 
     def add_selected_photo_to_visited_photos
       visited_photos << @selected_photo.id
-      self.save!
-    end
-
-    def clear_visited_photos
-      update_attribute(:visited_photos, [])
+      save!
     end
 
     def all_photos_have_been_visited?
