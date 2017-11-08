@@ -1,4 +1,5 @@
 class Request < ApplicationRecord
+  validates     :query, uniqueness: true
   serialize     :results
   before_create :assign_request_results
 
