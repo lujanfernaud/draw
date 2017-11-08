@@ -28,6 +28,7 @@ group :development, :test do
   gem 'guard-livereload',         '~> 2.5', '>= 2.5.2'
   gem 'guard-rspec',              '~> 4.7', '>= 4.7.3'
   gem 'rspec-rails',              '~> 3.7'
+  gem 'shoulda-matchers',         '~> 3.1', '>= 3.1.2'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
   gem 'factory_girl_rails',       '~> 4.8'
   gem 'capybara',                 '~> 2.15', '>= 2.15.4'
