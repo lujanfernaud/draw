@@ -86,7 +86,7 @@ class Request < ApplicationRecord
     end
 
     def get_page(page_number)
-      Unsplash::Photo.search(query, page = page_number, per_page = 6)
+      Unsplash::Photo.search(query, page = page_number, per_page = 7)
     end
 
     def prepare_photo

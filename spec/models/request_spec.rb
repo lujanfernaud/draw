@@ -14,7 +14,7 @@ RSpec.describe Request, type: :model do
 
     it "always returns random photo from category", :vcr do
       photos = []
-      24.times { photos << request.photo }
+      28.times { photos << request.photo }
       expect(photos.uniq.count).to eq(photos.count)
     end
   end
