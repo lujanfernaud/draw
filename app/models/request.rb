@@ -1,6 +1,6 @@
 class Request < ApplicationRecord
   serialize     :results
-  before_create :assign_results
+  before_create :assign_request_results
 
   FIRST_PAGE  = 1
   LAST_PAGE   = 115
@@ -28,7 +28,7 @@ class Request < ApplicationRecord
   def update_photos
     clear_current_pages
     clear_visited_photos
-    assign_results
+    assign_request_results
     save!
   end
 
@@ -42,7 +42,7 @@ class Request < ApplicationRecord
       update_column(:visited_photos, [])
     end
 
-    def assign_results
+    def assign_request_results
       self.results = get_results_for_query
     end
 
