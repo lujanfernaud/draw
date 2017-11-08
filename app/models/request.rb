@@ -96,20 +96,16 @@ class Request < ApplicationRecord
     end
 
     def select_photo
-      @selected_photo = parsed_results.sample
-      select_another_photo while photo_has_been_visited?
+      assign_photo
+      assign_photo while visited_photos.include?(@selected_photo.id)
     end
 
-    def select_another_photo
+    def assign_photo
       @selected_photo = parsed_results.sample
     end
 
     def parsed_results
       YAML.load(results)
-    end
-
-    def photo_has_been_visited?
-      visited_photos.include?(@selected_photo.id)
     end
 
     def add_selected_photo_to_visited_photos
