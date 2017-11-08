@@ -5,6 +5,7 @@
 $dark: #333;
 $light: #f8f8f8;
 $light-grey: #bfbfbf;
+$white: #fff;
 
 
 // Main
@@ -55,10 +56,15 @@ a:hover {
   width: 17rem;
 }
 
+.cover .logo__text {
+  fill: $white;
+}
+
 .slogan {
   margin-top: 2.8rem !important;
   margin-bottom: 2.5rem !important;
   font-size: 1.35rem;
+  color: $white;
 }
 
 
@@ -121,17 +127,17 @@ img.lazyload {
 }
 
 .btn-outline-secondary {
-  color: $light;
+  color: $white;
   background-color: transparent;
   background-image: none;
-  border-color: $light;
+  border-color: $white;
 }
 
 .btn-outline-secondary:hover,
 .btn-outline-secondary:active {
   color: $dark;
   text-shadow: none;
-  background-color: $light;
+  background-color: $white;
   background-image: none;
-  border-color: $light;
+  border-color: $white;
 }
