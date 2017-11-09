@@ -93,10 +93,8 @@ class Request < ApplicationRecord
       end
     end
 
-    def select_page_in(range)
-      page = rand(range)
-      page = rand(range) while previous_pages.include?(page)
-      page
+    def select_page_in(page_range)
+      ([*page_range] - previous_pages).sample
     end
 
     def prepare_previous_pages
