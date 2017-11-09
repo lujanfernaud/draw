@@ -53,7 +53,7 @@ a:hover {
 }
 
 .cover .logo {
-  width: 19rem;
+  width: 13rem;
 }
 
 .cover .logo__text {
@@ -61,26 +61,29 @@ a:hover {
 }
 
 .slogan {
-  margin-top: 2.9rem !important;
-  margin-bottom: 2.6rem !important;
-  font-size: 1.35rem;
+  margin-top: 2rem !important;
+  margin-bottom: 1.7rem !important;
+  font-size: 1.25rem;
   color: $white;
 }
 
-@include media-breakpoint-down(sm) {
+.cover .btn-lg {
+  font-size: 1.25rem;
+}
+
+@include media-breakpoint-up(md) {
   .cover .logo {
-    width: 13rem;
+    width: 19rem;
   }
 
   .slogan {
-    margin-top: 2rem !important;
-    margin-bottom: 1.7rem !important;
-    font-size: 1.25rem;
-    color: $white;
+    margin-top: 2.9rem !important;
+    margin-bottom: 2.6rem !important;
+    font-size: 1.35rem;
   }
 
   .cover .btn-lg {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
   }
 }
 
@@ -90,7 +93,7 @@ a:hover {
 
 
 .navbar .logo {
-  width: 7.1rem;
+  width: 4.5rem;
 }
 
 .navbar-brand {
@@ -98,14 +101,9 @@ a:hover {
   margin-bottom: .15rem !important;
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-up(md) {
   .navbar .logo {
-    width: 4.5rem;
-  }
-
-  .navbar-brand {
-    margin-top: .5rem !important;
-    margin-bottom: .15rem !important;
+    width: 7.1rem;
   }
 }
 
@@ -157,10 +155,6 @@ a:hover {
 
 .bg-dark {
   background-color: $dark !important;
-}
-
-.btn-lg {
-  font-size: 1.35rem;
 }
 
 .btn-outline-secondary {
