@@ -76,8 +76,13 @@ a:hover {
   width: 100%;
 }
 
-img.lazyload {
-  width: 100% !important;
+.photo-container {
+  display: inline-block;
+  background-size: contain;
+}
+
+.photo {
+  max-height: calc(100vh - 8.4rem);
 }
 
 .photo-credit {

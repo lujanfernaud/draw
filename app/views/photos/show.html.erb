@@ -1,11 +1,14 @@
 <main class="container flex-grow" role="main">
 
   <div class="row" data-turbolinks="false">
-    <div class="col">
-      <a href="<%= photo_url %>">
-        <img class="lazyload img-fluid" src="<%= @photo.urls.thumb %>"
-          data-src="<%= @photo.urls.regular %>" alt="<%= @request.query %>">
-      </a>
+    <div class="col text-center">
+
+      <div class="photo-container" style="background-image: url('<%= @photo.urls.thumb %>')">
+        <a href="<%= photo_url %>">
+          <img class="lazyload photo img-fluid" data-src="<%= @photo.urls.regular %>" alt="">
+        </a>
+      </div>
+
     </div>
   </div>
 
