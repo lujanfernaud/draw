@@ -67,14 +67,52 @@ a:hover {
   color: $white;
 }
 
+@include media-breakpoint-down(sm) {
+  .cover .logo {
+    width: 13rem;
+  }
 
-// Content
+  .slogan {
+    margin-top: 2rem !important;
+    margin-bottom: 1.7rem !important;
+    font-size: 1.25rem;
+    color: $white;
+  }
+
+  .cover .btn-lg {
+    font-size: 1.25rem;
+  }
+}
+
+
+// Navbar
 // -------
 
 
 .navbar .logo {
-  width: 100%;
+  width: 7.1rem;
 }
+
+.navbar-brand {
+  margin-top: .5rem !important;
+  margin-bottom: .15rem !important;
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar .logo {
+    width: 4.5rem;
+  }
+
+  .navbar-brand {
+    margin-top: .5rem !important;
+    margin-bottom: .15rem !important;
+  }
+}
+
+
+// Content
+// -------
+
 
 .photo-container {
   display: inline-block;
@@ -119,12 +157,6 @@ a:hover {
 
 .bg-dark {
   background-color: $dark !important;
-}
-
-.navbar-brand {
-  margin-top: .5rem !important;
-  margin-bottom: .15rem !important;
-  width: 6%;
 }
 
 .btn-lg {
