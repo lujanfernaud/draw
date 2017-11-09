@@ -8,13 +8,13 @@ class Request < ApplicationRecord
   PAGE_RANGES = [FIRST_PAGE..25, 30..55, 60..85, 90..LAST_PAGE]
 
   def self.allowed_queries
-    ["woman-girl",
-     "man-boy",
-     "face-woman-girl-man-boy",
-     "animal",
-     "flower",
-     "home",
-     "landscape"].freeze
+    {"female"    => "woman-girl",
+     "male"      => "man-boy",
+     "face"      => "face-woman-girl-man-boy",
+     "animal"    => "animal",
+     "flower"    => "flower",
+     "home"      => "home",
+     "landscape" => "landscape"}.freeze
   end
 
   def photo

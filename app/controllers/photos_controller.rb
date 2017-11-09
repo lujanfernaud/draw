@@ -1,16 +1,16 @@
 class PhotosController < ApplicationController
-  before_action :check_query, only: :show
+  before_action :check_query, :prepare_query, only: :show
 
   def index
   end
 
   def show
-    @request = Request.find_by(query: params[:id])
+    @request = Request.find_by(query: @query)
 
     if @request
       @request.update_photos unless @request.updated_today?
     else
-      @request = Request.create!(query: params[:id])
+      @request = Request.create!(query: @query)
     end
 
     @photo = @request.photo
@@ -24,5 +24,9 @@ class PhotosController < ApplicationController
 
     def valid_query?
       Request.allowed_queries.include?(params[:id])
+    end
+
+    def prepare_query
+      @query = Request.allowed_queries[params[:id]]
     end
 end
