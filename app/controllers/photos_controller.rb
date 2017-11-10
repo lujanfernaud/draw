@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :check_query, :prepare_query, only: :show
+  before_action :check_if_query_is_valid, :prepare_query, only: :show
 
   def index
   end
@@ -18,7 +18,7 @@ class PhotosController < ApplicationController
 
   private
 
-    def check_query
+    def check_if_query_is_valid
       redirect_to root_path unless valid_query?
     end
 
