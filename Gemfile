@@ -16,6 +16,7 @@ gem 'coffee-rails',               '~> 4.2'
 gem 'turbolinks',                 '~> 5'
 gem 'figaro' ,                    '~> 1.1'
 gem 'unsplash',                   '~> 1.5', '>= 1.5.1'
+gem 'inline_svg',                 '~> 1.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

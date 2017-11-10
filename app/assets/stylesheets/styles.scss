@@ -33,10 +33,6 @@ a:hover {
   background-color: $light;
 }
 
-.logo__text {
-  fill: $light;
-}
-
 
 // Cover
 // -----
@@ -54,9 +50,6 @@ a:hover {
 
 .cover .logo {
   width: 13rem;
-}
-
-.cover .logo__text {
   fill: $white;
 }
 
@@ -94,6 +87,7 @@ a:hover {
 
 .navbar .logo {
   width: 4.5rem;
+  fill: $light;
 }
 
 .navbar-brand {
