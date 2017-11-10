@@ -3,7 +3,8 @@
   <div class="row" data-turbolinks="false">
     <div class="col text-center">
 
-      <div class="photo-container" style="background-image: url('<%= @photo.urls.thumb %>')">
+      <div class="photo-container"
+        style="background-image: url('<%= low_resolution(@photo.urls.thumb) %>')">
         <a href="<%= photo_url %>">
           <img class="lazyload photo img-fluid" data-src="<%= @photo.urls.regular %>" alt="">
         </a>

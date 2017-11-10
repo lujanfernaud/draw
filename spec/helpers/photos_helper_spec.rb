@@ -1,15 +1,11 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the PhotosHelper. For example:
-#
-# describe PhotosHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe PhotosHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#low_resolution" do
+    let(:image) { "https://images.unsplash.com/photo-1458530553242-34a1bdf98213?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=71f844deb4f6a478d260b83fbc929405" }
+
+    it "returns url with an image width smaller than 200" do
+      expect(low_resolution(image)).to_not match(/w=200/)
+    end
+  end
 end
