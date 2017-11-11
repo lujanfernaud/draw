@@ -10495,34 +10495,25 @@ a:hover {
   background-color: #f8f8f8;
 }
 
-/* line 36, /home/han/github/draw/app/assets/stylesheets/styles.scss */
-.logo__text {
-  fill: #f8f8f8;
-}
-
-/* line 45, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 41, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .cover-image {
-  background-image: url("/jj-ying-215319.jpg");
+  background-image: url(/assets/jj-ying-215319-cb39bb1b309bd4d1780fa0b36ae56d214cab70c5b28c8634e4a146124ef48b5f.jpg);
   background-size: cover;
 }
 
-/* line 50, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 46, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .color-overlay {
   background-color: #333;
   opacity: 0.933;
 }
 
-/* line 55, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 51, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .cover .logo {
   width: 13rem;
-}
-
-/* line 59, /home/han/github/draw/app/assets/stylesheets/styles.scss */
-.cover .logo__text {
   fill: #fff;
 }
 
-/* line 63, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 56, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .slogan {
   margin-top: 2rem !important;
   margin-bottom: 1.7rem !important;
@@ -10530,90 +10521,78 @@ a:hover {
   color: #fff;
 }
 
-/* line 70, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 63, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .cover .btn-lg, .cover .btn-group-lg > .btn {
   font-size: 1.25rem;
 }
 
 @media (min-width: 768px) {
-  /* line 75, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+  /* line 68, /home/han/github/draw/app/assets/stylesheets/styles.scss */
   .cover .logo {
     width: 18rem;
   }
 
-  /* line 79, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+  /* line 72, /home/han/github/draw/app/assets/stylesheets/styles.scss */
   .slogan {
     margin-top: 2.9rem !important;
     margin-bottom: 2.6rem !important;
     font-size: 1.35rem;
   }
 
-  /* line 85, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+  /* line 78, /home/han/github/draw/app/assets/stylesheets/styles.scss */
   .cover .btn-lg, .cover .btn-group-lg > .btn {
     font-size: 1.35rem;
   }
 }
-/* line 95, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 88, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .navbar .logo {
   width: 4.5rem;
+  fill: #f8f8f8;
 }
 
-/* line 99, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 93, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .navbar-brand {
   margin-top: .5rem !important;
   margin-bottom: .15rem !important;
 }
 
 @media (min-width: 768px) {
-  /* line 105, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+  /* line 99, /home/han/github/draw/app/assets/stylesheets/styles.scss */
   .navbar .logo {
     width: 7.1rem;
   }
 }
-/* line 115, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 109, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .photo-container {
   display: inline-block;
   background-size: contain;
 }
 
-/* line 120, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 114, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .photo {
   max-height: calc(100vh - 8.4rem);
 }
 
-/* line 124, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 118, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .photo-credit {
   color: #bfbfbf;
 }
-/* line 126, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 120, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .photo-credit a {
   color: #bfbfbf;
 }
-/* line 129, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 123, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .photo-credit a:focus,
 .photo-credit a:hover {
   color: #f8f8f8;
 }
 
-/* line 140, /home/han/github/draw/app/assets/stylesheets/styles.scss */
-.footer {
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-}
-
-/* line 146, /home/han/github/draw/app/assets/stylesheets/styles.scss */
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-/* line 156, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 150, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .bg-dark {
   background-color: #333 !important;
 }
 
-/* line 160, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 154, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .btn-outline-secondary {
   color: #fff;
   background-color: transparent;
@@ -10621,7 +10600,7 @@ a:hover {
   border-color: #fff;
 }
 
-/* line 167, /home/han/github/draw/app/assets/stylesheets/styles.scss */
+/* line 161, /home/han/github/draw/app/assets/stylesheets/styles.scss */
 .btn-outline-secondary:hover,
 .btn-outline-secondary:active {
   color: #333;
