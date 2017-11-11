@@ -6,6 +6,7 @@ class Request < ApplicationRecord
   FIRST_PAGE  = 1
   LAST_PAGE   = 115
   PAGE_RANGES = [FIRST_PAGE..25, 30..55, 60..85, 90..LAST_PAGE]
+  PAGES       = PAGE_RANGES.count
 
   def self.allowed_queries
     {"female"    => "woman-girl",
@@ -98,13 +99,27 @@ class Request < ApplicationRecord
     end
 
     def prepare_previous_pages
-      update_column(:previous_pages, []) if persisted?
+      clear_previous_pages if pages_for_three_days?
 
       current_pages.each do |page|
         previous_pages << page - 1 unless page == FIRST_PAGE
         previous_pages << page
         previous_pages << page + 1 unless page == LAST_PAGE
       end
+    end
+
+    def clear_previous_pages
+      update_column(:previous_pages, [])
+    end
+
+    def pages_for_three_days?
+      previous_pages.count >= disallowed_pages_per_day * 3
+    end
+
+    def disallowed_pages_per_day
+      disallowed_pages_per_page = 3
+      first_and_last_page       = 2
+      PAGES * disallowed_pages_per_page - first_and_last_page
     end
 
     def pages
