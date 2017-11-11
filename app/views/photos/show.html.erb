@@ -6,7 +6,11 @@
       <div class="photo-container"
         style="background-image: url('<%= low_resolution(@photo.urls.thumb) %>')">
         <a href="<%= photo_url %>">
-          <img class="lazyload photo img-fluid" data-src="<%= @photo.urls.regular %>" alt="">
+          <img class="lazyload photo img-fluid" data-src="<%= @photo.urls.regular %>">
+
+          <noscript>
+            <img class="photo img-fluid" src="<%= @photo.urls.regular %>">
+          </noscript>
         </a>
       </div>
 
