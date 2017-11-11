@@ -10,9 +10,6 @@
 
   <body>
     <%= render "header" unless current_page?(root_url) %>
-
     <%= yield %>
-
-    <%= render "footer" unless current_page?(root_url) %>
   </body>
 </html>
