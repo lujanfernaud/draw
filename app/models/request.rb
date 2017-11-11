@@ -11,7 +11,7 @@ class Request < ApplicationRecord
   def self.allowed_queries
     {"female"    => "woman-girl",
      "male"      => "man-boy",
-     "face"      => "face-woman-girl-man-boy",
+     "face"      => "facial",
      "animal"    => "animal",
      "flower"    => "flower",
      "home"      => "home",
