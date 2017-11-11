@@ -4,8 +4,8 @@ class Request < ApplicationRecord
   before_create :assign_request_results
 
   FIRST_PAGE  = 1
-  LAST_PAGE   = 115
-  PAGE_RANGES = [FIRST_PAGE..25, 30..55, 60..85, 90..LAST_PAGE]
+  LAST_PAGE   = 135
+  PAGE_RANGES = [FIRST_PAGE..30, 35..65, 70..100, 105..LAST_PAGE]
   PAGES       = PAGE_RANGES.count
 
   def self.allowed_queries
