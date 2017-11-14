@@ -16,4 +16,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require lazysizes/lazysizes.min
+//= require lazysizes/plugins/unveilhooks/ls.unveilhooks.min
 //= require_tree .
