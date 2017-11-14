@@ -2,6 +2,6 @@
   "name": "draw",
   "private": true,
   "dependencies": {
-    "lazyload": "^2.0.0-beta.2"
+    "lazysizes": "^4.0.1"
   }
 }

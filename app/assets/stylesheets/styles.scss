@@ -112,10 +112,13 @@ a:hover {
 }
 
 .photo {
+  display: block;
+  width: 100%;
   max-height: calc(100vh - 8.4rem);
 }
 
 .photo-credit {
+  margin-top: 0.6rem !important;
   color: $light-grey;
   a {
     color: $light-grey;

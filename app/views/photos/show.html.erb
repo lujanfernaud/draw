@@ -6,10 +6,12 @@
       <div class="photo-container"
         style="background-image: url('<%= low_resolution(@photo.urls.thumb) %>')">
         <a href="<%= photo_url %>">
-          <img class="lazyload photo img-fluid" data-src="<%= @photo.urls.regular %>">
+          <img class="lazyload photo img-fluid"
+            data-src="<%= high_resolution(@photo.urls.regular) %>">
 
           <noscript>
-            <img class="photo img-fluid" src="<%= @photo.urls.regular %>">
+            <img class="photo img-fluid"
+              src="<%= high_resolution(@photo.urls.regular) %>">
           </noscript>
         </a>
       </div>
@@ -17,8 +19,8 @@
     </div>
   </div>
 
-  <div class="row mt-3">
-    <div class="col photo-credit text-center">
+  <div class="row photo-credit">
+    <div class="col text-center">
       <%= link_to "Photo", @photo.links.html %> by
         <%= link_to @photo.user.name, @photo.user.links.html %> /
         <%= link_to "Unsplash", "https://unsplash.com/" %>
