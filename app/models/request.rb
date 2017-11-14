@@ -14,7 +14,7 @@ class Request < ApplicationRecord
      "face"      => "facial-smile",
      "animal"    => "animal",
      "flower"    => "flower",
-     "landscape" => "landscape"}.freeze
+     "scenery"   => "landscape-scenery-field-coastal-lake"}.freeze
   end
 
   def photo
