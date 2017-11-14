@@ -14,7 +14,6 @@ class Request < ApplicationRecord
      "face"      => "facial-smile",
      "animal"    => "animal",
      "flower"    => "flower",
-     "home"      => "home",
      "landscape" => "landscape"}.freeze
   end
 
