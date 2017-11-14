@@ -12,7 +12,6 @@ RSpec.feature "Home page", type: :feature do
     expect(page).to have_selector(:link_or_button, "face")
     expect(page).to have_selector(:link_or_button, "animal")
     expect(page).to have_selector(:link_or_button, "flower")
-    expect(page).to have_selector(:link_or_button, "home")
-    expect(page).to have_selector(:link_or_button, "landscape")
+    expect(page).to have_selector(:link_or_button, "scenery")
   end
 end
