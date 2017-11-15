@@ -1,7 +1,8 @@
 class Request < ApplicationRecord
+  has_many      :photos, dependent: :destroy
   validates     :query, uniqueness: true
   serialize     :results
-  before_create :assign_request_results
+  before_create :assign_results
 
   FIRST_PAGE  = 1
   LAST_PAGE   = 135
@@ -18,8 +19,9 @@ class Request < ApplicationRecord
   end
 
   def photo
-    prepare_photo
-    @selected_photo
+    # prepare_photo
+    # @selected_photo
+    photos.sample.object
   end
 
   def updated_today?
@@ -28,49 +30,50 @@ class Request < ApplicationRecord
 
   def update_photos
     clear_current_pages
-    clear_visited_photos
-    assign_request_results
+    # clear_visited_photos
+    assign_results
     save!
   end
 
   private
 
-    def prepare_photo
-      select_photo
-      add_selected_photo_to_visited_photos
-      clear_visited_photos if all_photos_have_been_visited?
-    end
+    # def prepare_photo
+    #   select_photo
+    #   add_selected_photo_to_visited_photos
+    #   clear_visited_photos if all_photos_have_been_visited?
+    # end
 
-    def select_photo
-      loop do
-        @selected_photo = parsed_results.sample
-        break if selected_photo_has_not_been_visited
-      end
-    end
+    # def select_photo
+    #   loop do
+    #     @selected_photo = parsed_results.sample
+    #     break if selected_photo_has_not_been_visited
+    #   end
+    # end
 
-    def parsed_results
-      YAML.load(results)
-    end
+    # def selected_photo_has_not_been_visited
+    #   !visited_photos.include?(@selected_photo.id)
+    # end
 
-    def selected_photo_has_not_been_visited
-      !visited_photos.include?(@selected_photo.id)
-    end
+    # def add_selected_photo_to_visited_photos
+    #   visited_photos << @selected_photo.id
+    #   save!
+    # end
 
-    def add_selected_photo_to_visited_photos
-      visited_photos << @selected_photo.id
-      save!
-    end
+    # def clear_visited_photos
+    #   update_column(:visited_photos, [])
+    # end
 
-    def clear_visited_photos
-      update_column(:visited_photos, [])
-    end
-
-    def all_photos_have_been_visited?
-      (parsed_results.size - visited_photos.size).zero?
-    end
+    # def all_photos_have_been_visited?
+    #   (parsed_results.size - visited_photos.size).zero?
+    # end
 
     def clear_current_pages
       update_column(:current_pages, [])
+    end
+
+    def assign_results
+      assign_request_results
+      assign_photos
     end
 
     def assign_request_results
@@ -79,7 +82,7 @@ class Request < ApplicationRecord
 
     def get_results_for_query
       prepare_pages
-      YAML.dump(pages)
+      pages
     end
 
     def prepare_pages
@@ -131,4 +134,13 @@ class Request < ApplicationRecord
     def get_page(page_number)
       Unsplash::Photo.search(query, page = page_number, per_page = 7)
     end
+
+    def assign_photos
+      photos.destroy_all
+      results.each { |photo| photos.new(object: photo) }
+    end
+
+    # def parsed_results
+    #   YAML.load(results)
+    # end
 end
