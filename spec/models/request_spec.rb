@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Request, :vcr, type: :model do
-  let(:request) { Request.create!(query: "animal") }
+  let(:request) { Request.create!(query: "face") }
 
   describe "validations" do
-    subject { Request.create!(query: "animal") }
+    subject { Request.create!(query: "face") }
     it { should validate_uniqueness_of(:query) }
   end
 

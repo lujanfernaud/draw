@@ -1,0 +1,39 @@
+<div class="container-fluid cover-image lazyload p-0 h-100"
+  data-bg="assets/jj-ying-215319.jpg">
+  <div class="container-fluid color-overlay p-0 h-100">
+
+    <main class="container h-100 cover" role="main">
+      <div class="row h-100 align-items-center">
+        <div class="col">
+
+          <div class="row">
+            <div class="col text-center">
+              <%= inline_svg "logo.svg", class: "logo",
+                aria: true, title: "draw logo" %>
+              <p class="slogan">Focus on drawing.</p>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col text-center">
+              <%= link_to "female", "requests/female/photos",
+                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+              <%= link_to "male", "requests/male/photos",
+                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+              <%= link_to "face", "requests/face/photos",
+                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+              <%= link_to "animal", "requests/animal/photos",
+                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+              <%= link_to "flower", "requests/flower/photos",
+                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+              <%= link_to "scenery", "requests/scenery/photos",
+                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>
