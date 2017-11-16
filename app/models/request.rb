@@ -1,6 +1,7 @@
 class Request < ApplicationRecord
   has_many      :photos, dependent: :destroy
-  validates     :query, uniqueness: true
+  validates     :query, :name, uniqueness: true
+  validates     :query, :name, presence: true
   serialize     :results
   before_create :assign_results
 

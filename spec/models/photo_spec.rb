@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Photo, :vcr, type: :model do
-  let(:request)     { Request.create!(query: "female") }
+  let(:request)     { Request.create!(name: "female", query: "female") }
   let(:photo)       { request.photos.first }
   let(:url_thumb)   { /(https\:\/\/images\.unsplash\.com).*(w=200)/ }
   let(:url_regular) { /(https\:\/\/images\.unsplash\.com).*(w=1080)/ }

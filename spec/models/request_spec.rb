@@ -1,11 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Request, :vcr, type: :model do
-  let(:request) { Request.create!(query: "face") }
+  let(:request) { Request.create!(name: "face", query: "face") }
 
   describe "validations" do
-    subject { Request.create!(query: "face") }
+    subject { Request.create!(name: "face", query: "face") }
     it { should validate_uniqueness_of(:query) }
+    it { should validate_uniqueness_of(:name) }
+    it { should validate_presence_of(:query) }
+    it { should validate_presence_of(:name) }
   end
 
   describe "#photos" do
