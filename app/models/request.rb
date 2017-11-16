@@ -18,54 +18,17 @@ class Request < ApplicationRecord
      "scenery"   => "landscape-scenery-field-coastal-lake"}.freeze
   end
 
-  def photo
-    # prepare_photo
-    # @selected_photo
-    photos.sample.object
-  end
-
   def updated_today?
     updated_at.today?
   end
 
   def update_photos
     clear_current_pages
-    # clear_visited_photos
     assign_results
     save!
   end
 
   private
-
-    # def prepare_photo
-    #   select_photo
-    #   add_selected_photo_to_visited_photos
-    #   clear_visited_photos if all_photos_have_been_visited?
-    # end
-
-    # def select_photo
-    #   loop do
-    #     @selected_photo = parsed_results.sample
-    #     break if selected_photo_has_not_been_visited
-    #   end
-    # end
-
-    # def selected_photo_has_not_been_visited
-    #   !visited_photos.include?(@selected_photo.id)
-    # end
-
-    # def add_selected_photo_to_visited_photos
-    #   visited_photos << @selected_photo.id
-    #   save!
-    # end
-
-    # def clear_visited_photos
-    #   update_column(:visited_photos, [])
-    # end
-
-    # def all_photos_have_been_visited?
-    #   (parsed_results.size - visited_photos.size).zero?
-    # end
 
     def clear_current_pages
       update_column(:current_pages, [])
@@ -139,8 +102,4 @@ class Request < ApplicationRecord
       photos.destroy_all
       results.each { |photo| photos.new(object: photo) }
     end
-
-    # def parsed_results
-    #   YAML.load(results)
-    # end
 end

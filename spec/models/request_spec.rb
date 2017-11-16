@@ -14,22 +14,6 @@ RSpec.describe Request, :vcr, type: :model do
     end
   end
 
-  # describe "#photo" do
-  #   before do
-  #     @unsplash_photo_object = /Unsplash::Photo:\d\w[\d|\w]{14}/
-  #   end
-
-  #   it "returns photo object", :vcr do
-  #     expect(request.photo.to_s).to match(@unsplash_photo_object)
-  #   end
-
-  #   it "always returns random photo from category", :vcr do
-  #     photos = []
-  #     28.times { photos << request.photo }
-  #     expect(photos.uniq.count).to eq(photos.count)
-  #   end
-  # end
-
   describe "#updated_today?" do
     it "returns true if updated today" do
       expect(request.updated_today?).to eq(true)
