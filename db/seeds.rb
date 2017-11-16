@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Request.allowed_queries.each do |name, query|
+  puts "Creating request for '#{name}'..."
+  Request.create!(name: name, query: query)
+end
