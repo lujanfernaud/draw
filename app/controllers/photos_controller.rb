@@ -13,7 +13,6 @@ class PhotosController < ApplicationController
 
     def prepare_request
       redirect_to root_path unless query_is_valid?
-      prepare_query
       find_request
       update_request
     end
@@ -22,12 +21,8 @@ class PhotosController < ApplicationController
       Request.allowed_queries.include?(params[:request_id])
     end
 
-    def prepare_query
-      @query = Request.allowed_queries[params[:request_id]]
-    end
-
     def find_request
-      @request = Request.find_by(query: @query)
+      @request = Request.find_by(name: params[:request_id])
     end
 
     def update_request
