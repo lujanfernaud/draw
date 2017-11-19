@@ -16,17 +16,23 @@
 
           <div class="row mt-3">
             <div class="col text-center">
-              <%= link_to "female", "requests/female/photos",
+              <%= link_to "female",
+                "requests/female/photos/#{random_photo_for("female")}",
                 class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
-              <%= link_to "male", "requests/male/photos",
+              <%= link_to "male",
+                "requests/male/photos/#{random_photo_for("male")}",
                 class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
-              <%= link_to "face", "requests/face/photos",
+              <%= link_to "face",
+                "requests/face/photos/#{random_photo_for("face")}",
                 class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
-              <%= link_to "animal", "requests/animal/photos",
+              <%= link_to "animal",
+                "requests/animal/photos/#{random_photo_for("animal")}",
                 class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
-              <%= link_to "flower", "requests/flower/photos",
+              <%= link_to "flower",
+                "requests/flower/photos/#{random_photo_for("flower")}",
                 class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
-              <%= link_to "scenery", "requests/scenery/photos",
+              <%= link_to "scenery",
+                "requests/scenery/photos/#{random_photo_for("scenery")}",
                 class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
             </div>
           </div>

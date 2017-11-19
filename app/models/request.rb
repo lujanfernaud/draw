@@ -19,6 +19,11 @@ class Request < ApplicationRecord
      "scenery"   => "landscape-scenery-field-coastal-lake"}.freeze
   end
 
+  def next_photo_for(photo)
+    return photos.first.id if photo.id == photos.last.id
+    photo.id + 1
+  end
+
   def updated_today?
     updated_at.today?
   end

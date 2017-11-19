@@ -5,7 +5,9 @@
 
       <div class="photo-container"
         style="background-image: url('<%= low_resolution(@photo.url_thumb) %>')">
-        <a href="#">
+        <%= link_to request_photo_path(request_id: @request.name,
+          id: @request.next_photo_for(@photo)), class: "photo-link" do %>
+
           <img class="lazyload photo img-fluid"
             data-src="<%= high_resolution(@photo.url_regular) %>">
 
@@ -13,7 +15,8 @@
             <img class="photo img-fluid"
               src="<%= high_resolution(@photo.url_regular) %>">
           </noscript>
-        </a>
+
+        <% end %>
       </div>
 
     </div>
