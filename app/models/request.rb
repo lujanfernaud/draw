@@ -47,7 +47,7 @@ class Request < ApplicationRecord
     end
 
     def assign_request_results
-      self.results = get_results_for_query
+      self.results = get_results_for_query.shuffle
     end
 
     def get_results_for_query
