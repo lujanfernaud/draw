@@ -37,6 +37,7 @@ group :development, :test do
   gem 'pry-byebug',               '~> 3.5'
   gem 'pry-rails',                '~> 0.3.6'
   gem 'rubocop-rails',            '~> 1.1'
+  gem 'simplecov',                :require => false
   gem 'vcr',                      '~> 3.0', '>= 3.0.3'
   gem 'webmock',                  '~> 3.1'
 end

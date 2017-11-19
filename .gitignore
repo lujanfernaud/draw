@@ -24,3 +24,6 @@
 # Ignore VCR Cassettes
 /spec/factories/vcr_cassettes
 /spec/factories/vcr_cassettes/*
+
+# Ignore Simplecov folder
+coverage
