@@ -32,10 +32,10 @@ RSpec.describe Request, vcr: VCR_OPTIONS, type: :model do
     end
   end
 
-  describe "#updated_today?" do
+  describe "#updated_today?", vcr: VCR_OPTIONS.merge(record: :new_episodes) do
     it "returns true if updated today" do
-      updated = request.updated_today?
-      expect(request.updated_today?).to eq(updated)
+      request.update_photos
+      expect(request.updated_today?).to eq(true)
     end
   end
 end
