@@ -15,7 +15,7 @@ class Request < ApplicationRecord
      "male"      => "man-boy",
      "face"      => "facial-smile",
      "animal"    => "animal",
-     "flower"    => "flower",
+     "flower"    => "flower-bloom-blossom",
      "scenery"   => "landscape-scenery-field-coastal-lake"}.freeze
   end
 
