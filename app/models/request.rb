@@ -11,7 +11,7 @@ class Request < ApplicationRecord
   PAGES       = PAGE_RANGES.count
 
   def self.allowed_queries
-    {"female"    => "woman-girl",
+    {"female"    => "woman-lady-girl",
      "male"      => "man-boy",
      "face"      => "facial-smile",
      "animal"    => "animal",
