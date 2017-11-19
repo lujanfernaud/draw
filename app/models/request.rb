@@ -52,7 +52,7 @@ class Request < ApplicationRecord
 
     def get_results_for_query
       prepare_pages
-      pages
+      get_pages
     end
 
     def prepare_pages
@@ -94,7 +94,7 @@ class Request < ApplicationRecord
       PAGES * disallowed_pages_per_page - first_and_last_page
     end
 
-    def pages
+    def get_pages
       get_page(current_pages.first)    +
         get_page(current_pages.second) +
         get_page(current_pages.third)  +
