@@ -16,7 +16,8 @@ class Request < ApplicationRecord
      "face"      => "facial-smile",
      "animal"    => "animal",
      "flower"    => "flower-bloom-blossom",
-     "scenery"   => "landscape-scenery-field-coastal-lake"}.freeze
+     "scenery"   => "landscape-scenery-coastal-coast-" \
+                    "coastline-lake-sightseeing-harbour"}.freeze
   end
 
   def next_photo_for(photo)
