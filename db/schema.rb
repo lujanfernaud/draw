@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116175538) do
+ActiveRecord::Schema.define(version: 20171119130021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20171116175538) do
     t.integer "current_pages", default: [], array: true
     t.integer "previous_pages", default: [], array: true
     t.string "name"
+    t.index ["name"], name: "index_requests_on_name"
     t.index ["query"], name: "index_requests_on_query"
   end
 
