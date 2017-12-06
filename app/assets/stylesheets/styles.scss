@@ -3,8 +3,9 @@
 
 
 $dark: #333;
-$light: #f8f8f8;
+$dark-grey: #4f4f4f;
 $light-grey: #bfbfbf;
+$light: #f8f8f8;
 $white: #fff;
 
 
@@ -86,18 +87,87 @@ a:hover {
 
 
 .navbar .logo {
-  width: 4.5rem;
+  width: 5rem;
   fill: $light;
 }
 
 .navbar-brand {
-  margin-top: .5rem !important;
-  margin-bottom: .15rem !important;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  padding-top: .86rem;
+  padding-bottom: .4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.dropdown-menu {
+  top: 111%;
+  left: -50%;
+  min-width: 14rem;
+  background-color: $dark;
+  opacity: 0.938;
+  border: none;
+  border-left: 1px solid $dark-grey;
+  border-right: 1px solid $dark-grey;
+  border-bottom: 1px solid $dark-grey;
+  border-radius: 0.3rem;
+  border-top-left-radius: unset;
+  border-top-right-radius: unset;
+}
+
+.dropdown-divider {
+  border-top: 1px solid $dark-grey;
+}
+
+.dropdown-item {
+  padding: 1rem 1.5rem;
+  font-size: 1.35rem;
+  text-align: initial;
+  color: $white;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: $dark-grey;
+  color: $white;
+}
+.dropdown-item:active {
+  background-color: $white;
+}
+
+.menu-icon {
+  margin-right: .85rem;
+  vertical-align: bottom;
+  fill: $white;
+}
+
+.dropdown-item:active
+.menu-icon {
+  fill: $dark;
+}
+
+.menu-icon-home {
+  vertical-align: calc(-8px);
+}
+
+.menu-icon-list,
+.menu-icon-focus {
+  vertical-align: calc(-11px);
+}
+
+.menu-icon-about {
+  vertical-align: calc(-10px);
 }
 
 @include media-breakpoint-up(md) {
   .navbar .logo {
     width: 7.1rem;
+  }
+
+  .dropdown-menu {
+    top: 110%;
+    left: -27%;
   }
 }
 

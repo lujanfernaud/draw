@@ -1,8 +1,45 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark text-center">
-    <a class="navbar-brand mx-auto" href="<%= root_path %>">
-      <%= inline_svg "logo.svg", class: "logo",
-        aria: true, title: "draw logo" %>
-    </a>
+    <div class="mx-auto">
+
+      <div class="dropdown">
+
+        <a class="navbar-brand menu-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+          <%= inline_svg "logo.svg", class: "logo",
+          aria: true, title: "Open menu" %>
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <div class="center-items center-block">
+            <a href="<%= root_path %>" class="dropdown-item">
+              <%= inline_svg "ic_home_white_36px",
+                class: "menu-icon menu-icon-home" %>
+              home
+            </a>
+
+            <div class="dropdown-divider"></div>
+
+            <% if params[:action] == "show" %>
+              <a href="<%= request_photos_path(params[:request_id]) %>"
+                  class="dropdown-item">
+                <%= inline_svg "ic_view_list_white_36px",
+                  class: "menu-icon menu-icon-list" %>
+                list mode
+              </a>
+            <% else %>
+              <a href="<%= request_photo_path(params[:request_id],
+                  random_photo_for(params[:request_id])) %>"
+                  class="dropdown-item">
+                <%= inline_svg "ic_view_array_white_36px",
+                  class: "menu-icon menu-icon-focus" %>
+                focus mode
+              </a>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </nav>
 </header>
