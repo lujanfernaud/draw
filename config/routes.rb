@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root "requests#index"
 
-  resources :requests do
+  resources :requests, only: :index do
     resource  :random_photo, only: :show
-    resources :photos
+    resources :photos, only: [:index, :show]
   end
 end
