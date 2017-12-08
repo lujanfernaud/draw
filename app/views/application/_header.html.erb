@@ -27,8 +27,7 @@
                 list mode
               </a>
             <% else %>
-              <a href="<%= request_photo_path(params[:request_id],
-                  random_photo_for(params[:request_id])) %>"
+              <a href="<%= request_random_photo_path(params[:request_id]) %>"
                   class="dropdown-item">
                 <%= inline_svg "ic_view_array_white_36px",
                   class: "menu-icon menu-icon-focus" %>
