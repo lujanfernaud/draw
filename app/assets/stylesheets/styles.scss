@@ -176,6 +176,16 @@ a:hover {
 // -------
 
 
+.pt-navbar {
+  padding-top: 4.35rem;
+}
+
+@include media-breakpoint-up(md) {
+  .pt-navbar {
+    padding-top: 5.1rem;
+  }
+}
+
 .photo-container {
   display: inline-block;
   background-size: contain;
