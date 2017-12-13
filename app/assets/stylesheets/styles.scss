@@ -209,6 +209,12 @@ a:hover {
   }
 }
 
+hr {
+  margin-top: 3.1rem;
+  margin-bottom: 4.1rem;
+  border-top: 1px solid lighten($dark-grey, 2%);
+}
+
 
 // Footer
 // ------
