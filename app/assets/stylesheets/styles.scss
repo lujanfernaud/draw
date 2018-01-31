@@ -87,6 +87,10 @@ a:hover {
 // -------
 
 
+.navbar {
+  z-index: 1030;
+}
+
 .navbar .logo {
   width: 5rem;
   height: auto;
@@ -108,7 +112,7 @@ a:hover {
   left: -50%;
   min-width: 14rem;
   background-color: $dark;
-  opacity: 0.938;
+  opacity: 1;
   border: none;
   border-left: 1px solid $dark-grey;
   border-right: 1px solid $dark-grey;
@@ -116,6 +120,7 @@ a:hover {
   border-radius: 0.3rem;
   border-top-left-radius: unset;
   border-top-right-radius: unset;
+  z-index: 2000;
 }
 
 .dropdown-divider {
@@ -134,6 +139,7 @@ a:hover {
   background-color: $dark-grey;
   color: $white;
 }
+
 .dropdown-item:active {
   background-color: $white;
 }
@@ -177,6 +183,24 @@ a:hover {
 // Content
 // -------
 
+
+.main-container-overlay {
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $deep-dark;
+  opacity: 0;
+  z-index: 1000;
+  transition: all 0.5s;
+}
+
+.main-container-overlay--visible {
+  visibility: initial;
+  opacity: .9;
+}
 
 .main-container--focus {
   padding-top: 0.15rem;

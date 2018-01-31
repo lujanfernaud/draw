@@ -1,6 +1,7 @@
 $(document).on "turbolinks:load", ->
   lazySizes.init()
   allowPhotoResize()
+  menuBackgroundOverlay()
 
 allowPhotoResize = ->
   rowSpacing = 9
@@ -43,3 +44,10 @@ listModeIsActive = (rowPhoto) ->
 
 focusModeIsActive = (rowPhoto) ->
   rowPhoto.hasClass("row-photo--focus")
+
+menuBackgroundOverlay = ->
+  $(".dropdown").on "show.bs.dropdown", ->
+    $(".main-container-overlay").toggleClass "main-container-overlay--visible"
+
+  $(".dropdown").on "hide.bs.dropdown", ->
+    $(".main-container-overlay").toggleClass "main-container-overlay--visible"
