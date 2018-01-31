@@ -28,7 +28,7 @@
       <div class="next-photo">
         <%= link_to request_photo_path(request_id: @request.name,
             id: @request.next_photo_for(@photo)),
-            class: "next-photo-link" do %>
+            class: "next-photo-link", title: "Next photo" do %>
           &#x279e;
         <% end %>
       </div>

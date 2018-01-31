@@ -264,11 +264,12 @@ a:hover {
   font-size: 3rem;
   line-height: 1;
   color: $light-grey;
+  transition: all .5s;
 }
 
 .next-photo-link:hover,
 .next-photo-link:focus {
-  color: $light-grey;
+  color: $light;
   text-decoration: none;
 }
 
