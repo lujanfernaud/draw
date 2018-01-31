@@ -1,5 +1,8 @@
+// ------
 // Colors
 // ------
+
+
 
 
 $deep-dark: #212121;
@@ -10,8 +13,13 @@ $light: #f8f8f8;
 $white: #fff;
 
 
+
+
+// ----
 // Main
 // ----
+
+
 
 
 html,
@@ -36,8 +44,13 @@ a:hover {
 }
 
 
+
+
+// -----
 // Cover
 // -----
+
+
 
 
 .cover-image {
@@ -47,12 +60,16 @@ a:hover {
 
 .color-overlay {
   background-color: $dark;
-  opacity: 0.933;
+  opacity: .933;
 }
 
 .cover .logo {
   width: 13rem;
   fill: $white;
+
+  @include media-breakpoint-up(md) {
+    width: 20rem;
+  }
 }
 
 .slogan {
@@ -60,41 +77,44 @@ a:hover {
   margin-bottom: 1.7rem !important;
   font-size: 1.25rem;
   color: $white;
-}
 
-.cover .btn-lg {
-  font-size: 1.25rem;
-}
-
-@include media-breakpoint-up(md) {
-  .cover .logo {
-    width: 20rem;
-  }
-
-  .slogan {
+  @include media-breakpoint-up(md) {
     margin-top: 2.9rem !important;
     margin-bottom: 2.6rem !important;
     font-size: 1.35rem;
   }
+}
 
-  .cover .btn-lg {
+.cover .btn-lg {
+  font-size: 1.25rem;
+
+  @include media-breakpoint-up(md) {
     font-size: 1.35rem;
   }
 }
 
 
+
+
+// ------
 // Navbar
-// -------
+// ------
+
+
 
 
 .navbar {
   z-index: 1030;
 }
 
-.navbar .logo {
+.navbar-logo {
   width: 5rem;
   height: auto;
   fill: $light;
+
+  @include media-breakpoint-up(md) {
+    width: 7.1rem;
+  }
 }
 
 .navbar-brand {
@@ -121,6 +141,11 @@ a:hover {
   border-top-left-radius: unset;
   border-top-right-radius: unset;
   z-index: 2000;
+
+  @include media-breakpoint-up(md) {
+    top: 110%;
+    left: -27%;
+  }
 }
 
 .dropdown-divider {
@@ -132,16 +157,16 @@ a:hover {
   font-size: 1.35rem;
   text-align: initial;
   color: $white;
-}
 
-.dropdown-item:hover,
-.dropdown-item:focus {
-  background-color: $dark-grey;
-  color: $white;
-}
+  &:hover,
+  &:focus {
+    background-color: $dark-grey;
+    color: $white;
+  }
 
-.dropdown-item:active {
-  background-color: $white;
+  &:active {
+    background-color: $white;
+  }
 }
 
 .menu-icon {
@@ -168,20 +193,14 @@ a:hover {
   vertical-align: calc(-10px);
 }
 
-@include media-breakpoint-up(md) {
-  .navbar .logo {
-    width: 7.1rem;
-  }
-
-  .dropdown-menu {
-    top: 110%;
-    left: -27%;
-  }
-}
 
 
+
+// -------
 // Content
 // -------
+
+
 
 
 .main-container-overlay {
@@ -208,10 +227,8 @@ a:hover {
 
 .pt-navbar {
   padding-top: 4.35rem;
-}
 
-@include media-breakpoint-up(md) {
-  .pt-navbar {
+  @include media-breakpoint-up(md) {
     padding-top: 5.1rem;
   }
 }
@@ -222,10 +239,8 @@ a:hover {
   padding-left: .4rem;
   min-height: calc(100vh - 7.4rem);
   background-color: $deep-dark;
-}
 
-@include media-breakpoint-up(md) {
-  .row-photo--focus {
+  @include media-breakpoint-up(md) {
     min-height: calc(100vh - 8.2rem);
   }
 }
@@ -265,22 +280,25 @@ a:hover {
   line-height: 1;
   color: $light-grey;
   transition: all .5s;
-}
 
-.next-photo-link:hover,
-.next-photo-link:focus {
-  color: $light;
-  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: $light;
+    text-decoration: none;
+  }
 }
 
 .photo-credit {
   color: $light-grey;
+
   a {
     color: $light-grey;
-  }
-  a:focus,
-  a:hover {
-    color: $light;
+    transition: all .5s;
+
+    &:hover,
+    &:focus {
+      color: $light;
+    }
   }
 }
 
@@ -305,8 +323,13 @@ a:hover {
 }
 
 
+
+
+// ------
 // Footer
 // ------
+
+
 
 
 // .footer {
@@ -321,8 +344,13 @@ a:hover {
 // }
 
 
+
+
+// ------------------
 // Bootstrap Specific
 // ------------------
+
+
 
 
 .bg-dark {
@@ -334,13 +362,13 @@ a:hover {
   background-color: transparent;
   background-image: none;
   border-color: $white;
-}
 
-.btn-outline-secondary:hover,
-.btn-outline-secondary:active {
-  color: $dark;
-  text-shadow: none;
-  background-color: $white;
-  background-image: none;
-  border-color: $white;
+  &:hover,
+  &:active {
+    color: $dark;
+    text-shadow: none;
+    background-color: $white;
+    background-image: none;
+    border-color: $white;
+  }
 }
