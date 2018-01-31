@@ -13,6 +13,7 @@ allowPhotoResize = ->
       if photoIsBiggerThanContainer(rowPhoto, photo, rowSpacing)
         photo.toggleClass "cursor-resize"
         photo.on "click", ->
+          toggleNavbar(rowPhoto)
           photo.toggleClass "photo-max-height"
           scrollToPhotoTop(rowPhoto, photo)
 
@@ -21,6 +22,11 @@ photoIsBiggerThanContainer = (rowPhoto, photo, rowSpacing) ->
     rowPhoto.width() - photo.width() > rowSpacing
   else if focusModeIsActive(rowPhoto)
     rowPhoto.height() - photo.height() < rowSpacing
+
+toggleNavbar = (rowPhoto) ->
+  if focusModeIsActive(rowPhoto)
+    $(".navbar").toggleClass "fixed-top"
+    $(".main-container").toggleClass "pt-navbar"
 
 scrollToPhotoTop = (rowPhoto, photo) ->
   if listModeIsActive(rowPhoto)

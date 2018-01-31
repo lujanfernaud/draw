@@ -178,6 +178,10 @@ a:hover {
 // -------
 
 
+.main-container--focus {
+  padding-top: 0.15rem;
+}
+
 .pt-navbar {
   padding-top: 4.35rem;
 }
@@ -190,6 +194,8 @@ a:hover {
 
 .row-photo--focus {
   padding-top: .4rem;
+  padding-right: .4rem;
+  padding-left: .4rem;
   min-height: calc(100vh - 7.4rem);
   background-color: $deep-dark;
 }
