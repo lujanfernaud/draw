@@ -32,7 +32,7 @@ group :development, :test do
   gem 'shoulda-matchers',         '~> 3.1', '>= 3.1.2'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
   gem 'factory_girl_rails',       '~> 4.8'
-  gem 'capybara',                 '~> 2.15', '>= 2.15.4'
+  gem 'capybara',                 '~> 2.17'
   gem 'pry',                      '~> 0.11.2'
   gem 'pry-byebug',               '~> 3.5'
   gem 'pry-rails',                '~> 0.3.6'

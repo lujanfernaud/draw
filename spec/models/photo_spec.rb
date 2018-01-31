@@ -6,7 +6,7 @@ RSpec.describe Photo, vcr: VCR_OPTIONS, type: :model do
   let(:url_thumb)   { /(https\:\/\/images\.unsplash\.com).*(w=200)/ }
   let(:url_regular) { /(https\:\/\/images\.unsplash\.com).*(w=1080)/ }
   let(:url_link)    { /https\:\/\/unsplash\.com\/photos\/.{11}/ }
-  let(:user_name)   { /\w+\s\w+/ }
+  let(:user_name)   { /\w+\s+\w+/ }
   let(:user_link)   { /https\:\/\/unsplash\.com\/@./ }
 
   describe "#url_thumb" do

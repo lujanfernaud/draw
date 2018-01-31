@@ -2,6 +2,7 @@
 // ------
 
 
+$deep-dark: #212121;
 $dark: #333;
 $dark-grey: #4f4f4f;
 $light-grey: #bfbfbf;
@@ -88,6 +89,7 @@ a:hover {
 
 .navbar .logo {
   width: 5rem;
+  height: auto;
   fill: $light;
 }
 
@@ -186,19 +188,61 @@ a:hover {
   }
 }
 
+.row-photo--focus {
+  padding-top: .4rem;
+  min-height: calc(100vh - 7.4rem);
+  background-color: $deep-dark;
+}
+
+@include media-breakpoint-up(md) {
+  .row-photo--focus {
+    min-height: calc(100vh - 8.2rem);
+  }
+}
+
 .photo-container {
+  position: relative;
   display: inline-block;
   background-size: contain;
 }
 
 .photo {
   display: block;
-  width: 100%;
-  max-height: calc(100vh - 8.4rem);
+  max-width: 100%;
+  max-height: calc(100vh - 9.1rem);
+}
+
+.cursor-resize {
+  cursor: nesw-resize;
+}
+
+.photo-limited-height {
+  max-height: calc(100vh - 9.1rem);
+}
+
+.photo-max-height {
+  max-height: initial;
+}
+
+.next-photo {
+  padding-bottom: .2rem;
+}
+
+.next-photo-link {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  font-size: 3rem;
+  line-height: 1;
+  color: $light-grey;
+}
+
+.next-photo-link:hover,
+.next-photo-link:focus {
+  color: $light-grey;
+  text-decoration: none;
 }
 
 .photo-credit {
-  margin-top: 0.6rem !important;
   color: $light-grey;
   a {
     color: $light-grey;
@@ -209,10 +253,24 @@ a:hover {
   }
 }
 
-hr {
+.photo-credit--focus {
+  padding-top: 1rem;
+  padding-bottom: .8rem;
+  background-color: lighten($dark, 4.9);
+}
+
+.photo-credit--list {
+  margin-top: 0.6rem !important;
+}
+
+.row-photo-divisor {
   margin-top: 3.1rem;
   margin-bottom: 4.1rem;
   border-top: 1px solid lighten($dark-grey, 2%);
+}
+
+.row-photo-divisor:last-child {
+  display: none;
 }
 
 

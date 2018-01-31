@@ -10,7 +10,7 @@ RSpec.feature "ShowPhotos", vcr: VCR_OPTIONS, type: :feature do
     request_photo_path(request_id: query, id: second_photo.id)
   end
 
-  let(:photo_path)       { /\photos\/\d+/ }
+  let(:photo_path)       { /photos\/\d+/ }
   let(:query_index_path) { request_photos_path(request_id: query) }
 
   scenario "user visits photo" do
@@ -19,14 +19,6 @@ RSpec.feature "ShowPhotos", vcr: VCR_OPTIONS, type: :feature do
     expect(page).to have_css("img")
     expect(page).to have_text("Photo by")
     expect(page).to have_link("Unsplash")
-  end
-
-  scenario "user clicks photo" do
-    visit_first_photo
-
-    find("a", class: "photo-link").click
-
-    expect(page).to have_current_path(second_photo_path)
   end
 
   scenario "user selects 'list mode' from menu" do
