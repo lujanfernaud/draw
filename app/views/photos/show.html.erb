@@ -3,15 +3,20 @@
   <div class="row row-photo row-photo--focus align-items-center">
     <div class="col text-center p-0">
 
-      <div class="photo-container text-center"
-        style="background-image: url('<%= low_resolution(@photo.url_thumb) %>')">
-        <img class="lazyload photo img-fluid"
-          data-src="<%= high_resolution(@photo.url_regular) %>">
+      <div class="container photo-container-wrapper p-0">
+        <div class="photo-container text-center"
+          data-photo-width="<%= @photo_decorator.width %>"
+          data-photo-height="<%= @photo_decorator.height %>">
+          <img class="lazyload photo img-fluid"
+            data-src="<%= @photo_decorator.url_regular %>">
+          <img class="photo--low-res img-fluid"
+            src="<%= @photo_decorator.url_thumb %>">
 
-        <noscript>
-          <img class="photo img-fluid"
-            src="<%= high_resolution(@photo.url_regular) %>">
-        </noscript>
+          <noscript>
+            <img class="photo img-fluid"
+              src="<%= @photo_decorator.url_regular %>">
+          </noscript>
+        </div>
       </div>
 
     </div>
@@ -23,11 +28,11 @@
 
 <div class="container-fluid">
 
-  <div class="row text-center">
+  <div class="row photo-footer--focus text-center">
     <div class="col">
       <div class="next-photo">
         <%= link_to request_photo_path(request_id: @request.name,
-            id: @request.next_photo_for(@photo)),
+            id: @request.next_photo_for(@photo_decorator)),
             class: "next-photo-link", title: "Next photo" do %>
           &#x279e;
         <% end %>
@@ -37,8 +42,8 @@
 
   <div class="row photo-credit photo-credit--focus">
     <div class="col text-center">
-      <%= link_to "Photo", @photo.url_link %> by
-        <%= link_to @photo.user_name, @photo.user_link %> /
+      <%= link_to "Photo", @photo_decorator.url_link %> by
+        <%= link_to @photo_decorator.user_name, @photo_decorator.user_link %> /
         <%= link_to "Unsplash", "https://unsplash.com/" %>
     </div>
   </div>

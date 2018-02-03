@@ -1,7 +1,68 @@
 $(document).on "turbolinks:load", ->
   lazySizes.init()
+  sizePhotoContainer()
   allowPhotoResize()
   menuBackgroundOverlay()
+
+
+# ------------------
+# sizePhotoContainer
+# ------------------
+
+
+sizePhotoContainer = ->
+  $(".photo-container").each ->
+    container   = $(this)
+    photo       = container.find(".photo")
+    maxWidth    = container.parent().width()
+    maxHeight   = viewportHeight() - navbarHeight() - photoFooterHeight()
+    photoWidth  = container.data("photo-width")
+    photoHeight = container.data("photo-height")
+
+    if photoWidth > photoHeight
+      ratio  = maxWidth / photoWidth
+      width  = photoWidth  * ratio
+      height = photoHeight * ratio
+
+      if height > maxHeight
+        newRatio = maxHeight / height
+        width    = photoWidth  * newRatio
+        height   = photoHeight * newRatio
+
+    else
+      ratio  = maxHeight / photoHeight
+      width  = photoWidth  * ratio
+      height = photoHeight * ratio
+
+    sizeContainer(container, width, height)
+    resetContainerSizeWhenPhotoIsLoaded(container, photo)
+
+viewportHeight = ->
+  Math.max(document.documentElement.clientHeight || window.innerHeight || 0)
+
+navbarHeight = ->
+  $(".navbar").outerHeight(true)
+
+photoFooterHeight = ->
+  heightOffset = 15
+
+  $(".photo-footer--focus").outerHeight(true) + heightOffset ||
+    $(".photo-footer--list").outerHeight(true) - heightOffset
+
+sizeContainer = (container, width, height) ->
+  container.css("width", width + "px")
+  container.css("height", height + "px")
+
+resetContainerSizeWhenPhotoIsLoaded = (container, photo) ->
+  photo.on "lazyloaded", ->
+    container.css("width", "auto")
+    container.css("height", "auto")
+
+
+# ----------------
+# allowPhotoResize
+# ----------------
+
 
 allowPhotoResize = ->
   rowSpacing = 9
@@ -44,6 +105,12 @@ listModeIsActive = (rowPhoto) ->
 
 focusModeIsActive = (rowPhoto) ->
   rowPhoto.hasClass("row-photo--focus")
+
+
+# ---------------------
+# menuBackgroundOverlay
+# ---------------------
+
 
 menuBackgroundOverlay = ->
   $(".dropdown").on "show.bs.dropdown", ->

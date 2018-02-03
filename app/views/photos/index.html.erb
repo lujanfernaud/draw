@@ -1,27 +1,32 @@
 <main class="container main-container flex-grow pt-navbar" role="main">
 
-  <% @photos.each do |photo| %>
+  <% @photos_decorators.each do |photo_decorator| %>
     <div class="row row-photo row-photo--list">
       <div class="col text-center p-0">
 
-        <div class="photo-container"
-          style="background-image: url('<%= low_resolution(photo.url_thumb) %>')">
-          <img class="lazyload photo photo-limited-height img-fluid"
-            data-src="<%= high_resolution(photo.url_regular) %>">
+        <div class="container photo-container-wrapper p-0">
+          <div class="photo-container"
+            data-photo-width="<%= photo_decorator.width %>"
+            data-photo-height="<%= photo_decorator.height %>">
+            <img class="lazyload photo photo-limited-height img-fluid"
+              data-src="<%= photo_decorator.url_regular %>">
+            <img class="photo--low-res img-fluid"
+              src="<%= photo_decorator.url_thumb %>">
 
-          <noscript>
-            <img class="photo photo-limited-height img-fluid"
-              src="<%= high_resolution(photo.url_regular) %>">
-          </noscript>
+            <noscript>
+              <img class="photo photo-limited-height img-fluid"
+                src="<%= photo_decorator.url_regular %>">
+            </noscript>
+          </div>
         </div>
 
       </div>
     </div>
 
-    <div class="row photo-credit photo-credit--list mb-5">
+    <div class="row photo-footer--list photo-credit photo-credit--list mb-5">
       <div class="col text-center">
-        <%= link_to "Photo", photo.url_link %> by
-          <%= link_to photo.user_name, photo.user_link %> /
+        <%= link_to "Photo", photo_decorator.url_link %> by
+          <%= link_to photo_decorator.user_name, photo_decorator.user_link %> /
           <%= link_to "Unsplash", "https://unsplash.com/" %>
       </div>
     </div>

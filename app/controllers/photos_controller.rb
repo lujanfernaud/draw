@@ -2,11 +2,14 @@ class PhotosController < ApplicationController
   before_action :prepare_request
 
   def index
-    @photos = @request.photos
+    @photos_decorators = @request.photos.map do |photo|
+      PhotoDecorator.new(photo)
+    end
   end
 
   def show
-    @photo = @request.photos.find(params[:id])
+    photo = @request.photos.find(params[:id])
+    @photo_decorator = PhotoDecorator.new(photo)
   end
 
   private
