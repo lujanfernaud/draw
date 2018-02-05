@@ -20,7 +20,7 @@ sizePhotoContainer = ->
     photoHeight = container.data("photo-height")
 
     if photoWidth > photoHeight
-      ratio  = maxWidth / photoWidth
+      ratio  = Math.min(maxWidth / photoWidth, maxHeight / photoHeight)
       width  = photoWidth  * ratio
       height = photoHeight * ratio
 
@@ -30,7 +30,7 @@ sizePhotoContainer = ->
         height   = photoHeight * newRatio
 
     else
-      ratio  = maxHeight / photoHeight
+      ratio  = Math.min(maxWidth / photoWidth, maxHeight / photoHeight)
       width  = photoWidth  * ratio
       height = photoHeight * ratio
 
