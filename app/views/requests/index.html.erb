@@ -1,5 +1,6 @@
 <div class="container-fluid p-0 h-100">
-  <div class="cover-image--low-res"></div>
+  <div class="cover-image--low-res"
+    id="cover-image-low-res" data-turbolinks-permanent></div>
   <div class="cover-image lazyload"
     id="cover-image" data-turbolinks-permanent
     data-bg="https://res.cloudinary.com/dlcwjp0kv/image/upload/v1517870570/jj-ying-215319.jpg"></div>
@@ -22,22 +23,28 @@
             <div class="col text-center">
               <%= link_to "female",
                 request_random_photo_path("female"),
-                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+                class: "btn btn-category btn-outline-secondary
+                        btn-lg mb-3 mx-1" %>
               <%= link_to "male",
                 request_random_photo_path("male"),
-                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+                class: "btn btn-category btn-outline-secondary
+                        btn-lg mb-3 mx-1" %>
               <%= link_to "face",
                 request_random_photo_path("face"),
-                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+                class: "btn btn-category btn-outline-secondary
+                        btn-lg mb-3 mx-1" %>
               <%= link_to "animal",
                 request_random_photo_path("animal"),
-                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+                class: "btn btn-category btn-outline-secondary
+                        btn-lg mb-3 mx-1" %>
               <%= link_to "flower",
                 request_random_photo_path("flower"),
-                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+                class: "btn btn-category btn-outline-secondary
+                        btn-lg mb-3 mx-1" %>
               <%= link_to "scenery",
                 request_random_photo_path("scenery"),
-                class: "btn btn-outline-secondary btn-lg mb-3 mx-1" %>
+                class: "btn btn-category btn-outline-secondary
+                        btn-lg mb-3 mx-1" %>
             </div>
           </div>
 

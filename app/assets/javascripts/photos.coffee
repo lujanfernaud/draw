@@ -1,8 +1,21 @@
 $(document).on "turbolinks:load", ->
   lazySizes.init()
+  clearTurbolinksCacheOnCategoryClick()
   sizePhotoContainer()
   allowPhotoResize()
   menuBackgroundOverlay()
+
+
+# -----------------------------------
+# clearTurbolinksCacheOnCategoryClick
+# -----------------------------------
+
+
+# We do this to prevent the last image that we saw in the category
+# from appearing before the new random image is loaded.
+clearTurbolinksCacheOnCategoryClick = ->
+  $(".btn-category").click ->
+    Turbolinks.clearCache()
 
 
 # ------------------
