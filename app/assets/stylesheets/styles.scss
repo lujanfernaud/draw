@@ -15,6 +15,24 @@ $white: #fff;
 
 
 
+// ------
+// Mixins
+// ------
+
+
+
+
+@mixin position-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
 // ----
 // Main
 // ----
@@ -53,14 +71,28 @@ a:hover {
 
 
 
-.cover-image {
+.cover-image--low-res {
+  @include position-absolute;
   background-image: image-url("jj-ying-215319-lqip.jpg");
   background-size: cover;
+  filter: blur(.9rem);
+  animation: .5s fade-in;
+  z-index: 0;
+}
+
+.cover-image {
+  @include position-absolute;
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 1s;
+  z-index: 1;
 }
 
 .color-overlay {
+  position: relative;
   background-color: $dark;
   opacity: .933;
+  z-index: 2;
 }
 
 .cover .logo {
@@ -279,11 +311,7 @@ a:hover {
 }
 
 .photo--low-res {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  @include position-absolute;
   filter: blur(0.45rem) grayscale(26%);
   animation: .5s fade-in;
   z-index: 0;
@@ -363,27 +391,6 @@ a:hover {
 .row-photo-divisor:last-child {
   display: none;
 }
-
-
-
-
-// ------
-// Footer
-// ------
-
-
-
-
-// .footer {
-//   width: 100%;
-//   height: 60px;
-//   line-height: 60px;
-// }
-
-// .footer > .container {
-//   padding-right: 15px;
-//   padding-left: 15px;
-// }
 
 
 
