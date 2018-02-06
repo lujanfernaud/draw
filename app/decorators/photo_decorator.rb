@@ -15,7 +15,7 @@ class PhotoDecorator
   end
 
   def url_thumb
-    photo.object.urls.thumb.sub(/w=200/, "w=150")
+    photo.object.urls.thumb.sub(/q=80/, "q=10").sub(/w=200/, "w=100")
   end
 
   def url_regular

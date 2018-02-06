@@ -5,8 +5,8 @@ RSpec.describe PhotoDecorator, vcr: VCR_OPTIONS, type: :model do
   let(:photo)           { request.photos.first }
   let(:photo_decorator) { PhotoDecorator.new(photo) }
 
-  let(:url_thumb)       { /(https\:\/\/images\.unsplash\.com).*(w=150)/ }
-  let(:url_regular)     { /(https\:\/\/images\.unsplash\.com).*(w=1140)/ }
+  let(:url_thumb)       { /(images\.unsplash\.com).*(q=10).*(w=100)/ }
+  let(:url_regular)     { /(images\.unsplash\.com).*(w=1140)/ }
   let(:url_link)        { /https\:\/\/unsplash\.com\/photos\/.{11}/ }
   let(:user_name)       { /\w+\s+\w+/ }
   let(:user_link)       { /https\:\/\/unsplash\.com\/@./ }
