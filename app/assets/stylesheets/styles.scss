@@ -137,6 +137,11 @@ a:hover {
 
 .navbar {
   z-index: 1030;
+  padding: .3rem 0 .1rem 0;
+
+  @include media-breakpoint-up(md) {
+    padding: .4rem 0 .3rem 0;
+  }
 }
 
 .navbar-logo {
@@ -145,7 +150,7 @@ a:hover {
   fill: $light;
 
   @include media-breakpoint-up(md) {
-    width: 7.1rem;
+    width: 6.1rem;
   }
 }
 
@@ -156,12 +161,16 @@ a:hover {
   padding-top: .86rem;
   padding-bottom: .4rem;
   padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: 2rem;
+
+  @include media-breakpoint-up(md) {
+    padding-right: 2.1rem;
+  }
 }
 
 .dropdown-menu {
-  top: 111%;
-  left: -50%;
+  top: 99%;
+  left: -37.5%;
   min-width: 14rem;
   background-color: $dark;
   opacity: 1;
@@ -175,8 +184,8 @@ a:hover {
   z-index: 2000;
 
   @include media-breakpoint-up(md) {
-    top: 109%;
-    left: -27%;
+    top: 105%;
+    left: -25.1%;
   }
 }
 
@@ -235,6 +244,13 @@ a:hover {
 
 
 
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .main-container-overlay {
   position: fixed;
   visibility: hidden;
@@ -253,15 +269,12 @@ a:hover {
   opacity: .88;
 }
 
-.main-container--focus {
-  padding-top: 0.15rem;
-}
-
+// Space for fixed navbar.
 .pt-navbar {
-  padding-top: 4.35rem;
+  padding-top: 3.85rem;
 
   @include media-breakpoint-up(md) {
-    padding-top: 5.1rem;
+    padding-top: 4.35rem;
   }
 }
 
@@ -269,11 +282,22 @@ a:hover {
   padding-top: .4rem;
   padding-right: .4rem;
   padding-left: .4rem;
-  min-height: calc(100vh - 7.4rem);
+  min-height: calc(100vh - 7.1rem);
   background-color: $deep-dark;
 
   @include media-breakpoint-up(md) {
-    min-height: calc(100vh - 8.2rem);
+    min-height: calc(100vh - 7.4rem);
+  }
+}
+
+.row-photo--list {
+  position: relative;
+  padding-top: .42rem;
+  background-color: $deep-dark;
+  min-height: calc(100vh - 3.8rem);
+
+  @include media-breakpoint-up(md) {
+    min-height: calc(100vh - 4.4rem);
   }
 }
 
@@ -296,7 +320,7 @@ a:hover {
   position: relative;
   display: block;
   max-width: 100%;
-  max-height: calc(100vh - 9.1rem);
+  max-height: calc(100vh - 8.2rem);
   opacity: 0;
   transition: all 1s;
   z-index: 1;
@@ -332,7 +356,7 @@ a:hover {
 }
 
 .photo-limited-height {
-  max-height: calc(100vh - 9.1rem);
+  max-height: calc(100vh - 8.2rem);
 }
 
 .photo-max-height {
@@ -340,6 +364,7 @@ a:hover {
 }
 
 .next-photo {
+  min-height: 3.2rem;
   padding-bottom: .2rem;
 }
 
@@ -359,7 +384,9 @@ a:hover {
 }
 
 .photo-credit {
+  padding-bottom: .8rem;
   color: $light-grey;
+  background-color: lighten($dark, 4.9);
 
   a {
     color: $light-grey;
@@ -374,24 +401,99 @@ a:hover {
 
 .photo-credit--focus {
   padding-top: 1rem;
-  padding-bottom: .8rem;
-  background-color: lighten($dark, 4.9);
 }
 
 .photo-credit--list {
-  margin-top: 0.6rem !important;
+  padding-top: .5rem;
+  background-color: transparent;
 }
 
-.row-photo-divisor {
-  margin-top: 3.1rem;
-  margin-bottom: 4.1rem;
-  border-top: 1px solid lighten($dark-grey, 2%);
+.photo-credit--list:last-child {
+  margin-bottom: 0 !important;
 }
 
-.row-photo-divisor:last-child {
+.row-divisor {
+  padding-top: 13vh;
+  padding-bottom: 13vh;
+}
+
+.row-divisor:last-child {
   display: none;
 }
 
+.row-photo-divisor {
+  display: inline-block;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-top: 1px solid darken($dark-grey, 3.5%);
+  width: 10vw;
+
+  @include media-breakpoint-up(md) {
+    width: 7vw;
+  }
+}
+
+.chevron-down-icon {
+  width: 1.7rem;
+  stroke: darken($dark-grey, 3.5%);
+}
+
+.photo-navigation {
+  display: none;
+  position: absolute;
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: .5rem;
+    padding-bottom: 1.5rem;
+    animation: .5s fade-in;
+    z-index: 10;
+  }
+}
+
+.navigation__arrow {
+  background-color: rgba($deep-dark, .65);
+}
+
+.navigation__arrow--up {
+  margin-bottom: 2rem;
+}
+
+.navigation__link {
+  padding: .8rem;
+  font-size: 2.5rem;
+  opacity: .5;
+  transition: opacity .5s;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+
+
+
+
+// ---------
+// Utilities
+// ---------
+
+
+
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.test-message {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+}
 
 
 
@@ -404,6 +506,10 @@ a:hover {
 
 .bg-dark {
   background-color: $dark !important;
+}
+
+.bg-darker {
+  background-color: darken($dark, 4%) !important;
 }
 
 .btn-outline-secondary {
@@ -419,5 +525,16 @@ a:hover {
     background-color: $white;
     background-image: none;
     border-color: $white;
+  }
+}
+
+.dropdown-toggle::after {
+  position: absolute;
+  top: 1.95rem;
+  right: .8rem;
+
+  @include media-breakpoint-up(md) {
+    top: 2.20rem;
+    right: .8rem;
   }
 }

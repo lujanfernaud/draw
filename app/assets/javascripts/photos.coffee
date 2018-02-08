@@ -57,10 +57,11 @@ navbarHeight = ->
   $(".navbar").outerHeight(true)
 
 photoFooterHeight = ->
-  heightOffset = 15
+  focusHeightOffset = 10
+  listHeightOffset  = 20
 
-  $(".photo-footer--focus").outerHeight(true) + heightOffset ||
-    $(".photo-footer--list").outerHeight(true) - heightOffset
+  $(".photo-footer--focus").outerHeight(true) + focusHeightOffset ||
+    $(".photo-footer--list").outerHeight(true) + listHeightOffset
 
 sizeContainer = (container, width, height) ->
   container.css("width", width + "px")
@@ -78,25 +79,22 @@ resetContainerSizeWhenPhotoIsLoaded = (container, photo) ->
 
 
 allowPhotoResize = ->
-  rowSpacing = 9
-
   $(".photo-container").ready ->
     $(".photo").hover ->
-      rowPhoto = $(this).parents(".row-photo")
-      photo    = $(this)
+      rowPhoto  = $(this).parents(".row-photo")
+      container = $(this).parents(".photo-container")
+      photo     = $(this)
+      photoFullWidth = container.data("photo-width")
 
-      if photoIsBiggerThanContainer(rowPhoto, photo, rowSpacing)
+      if photoIsNotFullSize(photo, photoFullWidth)
         photo.toggleClass "cursor-resize"
         photo.on "click", ->
           toggleNavbar(rowPhoto)
           photo.toggleClass "photo-max-height"
           scrollToPhotoTop(rowPhoto, photo)
 
-photoIsBiggerThanContainer = (rowPhoto, photo, rowSpacing) ->
-  if listModeIsActive(rowPhoto)
-    rowPhoto.width() - photo.width() > rowSpacing
-  else if focusModeIsActive(rowPhoto)
-    rowPhoto.height() - photo.height() < rowSpacing
+photoIsNotFullSize = (photo, photoFullWidth) ->
+  photo.width() < photoFullWidth
 
 toggleNavbar = (rowPhoto) ->
   if focusModeIsActive(rowPhoto)
@@ -105,7 +103,7 @@ toggleNavbar = (rowPhoto) ->
 
 scrollToPhotoTop = (rowPhoto, photo) ->
   if listModeIsActive(rowPhoto)
-    navbarOffset = 1
+    navbarOffset = 7
   else if focusModeIsActive(rowPhoto)
     navbarOffset = 50
 

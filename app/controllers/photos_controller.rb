@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :prepare_request
 
   def index
-    @photos_decorators = @request.photos.map do |photo|
+    @photos_decorators = @request.photos.sort.map do |photo|
       PhotoDecorator.new(photo)
     end
   end

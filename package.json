@@ -2,6 +2,7 @@
   "name": "draw",
   "private": true,
   "dependencies": {
-    "lazysizes": "^4.0.1"
+    "lazysizes": "^4.0.1",
+    "smooth-scroll": "^12.1.5"
   }
 }

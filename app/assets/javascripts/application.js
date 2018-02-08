@@ -17,4 +17,5 @@
 //= require bootstrap-sprockets
 //= require lazysizes/lazysizes.min
 //= require lazysizes/plugins/unveilhooks/ls.unveilhooks.min
+//= require smooth-scroll/dist/js/smooth-scroll.polyfills.min
 //= require_tree .

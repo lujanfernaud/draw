@@ -1,8 +1,10 @@
-<main class="container-fluid main-container flex-grow pt-navbar" role="main">
+<main class="container-fluid main-container flex-grow pt-navbar bg-darker"
+  role="main">
 
-  <% @photos_decorators.each do |photo_decorator| %>
-    <div class="row row-photo row-photo--list">
-      <div class="col text-center p-0">
+  <% @photos_decorators.each_with_index do |photo_decorator, index| %>
+    <div class="row row-photo row-photo--list align-items-center"
+      id="<%= photo_decorator.id %>">
+      <div class="col-12 text-center p-0">
 
         <div class="photo-container-wrapper p-0">
           <div class="photo-container"
@@ -20,20 +22,49 @@
           </div>
         </div>
 
+        <div class="photo-footer--list photo-credit photo-credit--list mb-5">
+          <%= link_to "Photo", photo_decorator.url_link %> by
+            <%= link_to photo_decorator.user_name, photo_decorator.user_link %> /
+            <%= link_to "Unsplash", "https://unsplash.com/" %>
+        </div>
+
+      </div>
+
+      <div class="photo-navigation" data-turbolinks="false">
+        <div class="navigation__arrow navigation__arrow--up
+          <%= hide_if_first(index) %>">
+          <a class="navigation__link navigation__link--up"
+            title="Previous photo" data-scroll
+            href="#<%= photo_decorator.id - 1 %>">&#x21e7;</a>
+        </div>
+        <div class="navigation__arrow navigation__arrow--down
+          <%= hide_if_last(index, @photos_decorators) %>">
+          <a class="navigation__link navigation__link--down"
+            title="Next photo" data-scroll
+            href="#<%= photo_decorator.id + 1 %>">&#x21e9;</a>
+        </div>
       </div>
     </div>
 
-    <div class="row photo-footer--list photo-credit photo-credit--list mb-5">
-      <div class="col text-center">
-        <%= link_to "Photo", photo_decorator.url_link %> by
-          <%= link_to photo_decorator.user_name, photo_decorator.user_link %> /
-          <%= link_to "Unsplash", "https://unsplash.com/" %>
-      </div>
+    <div class="row-divisor text-center">
+      <hr class="row-photo-divisor">
+        <svg class="chevron-down-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1" viewBox="0 0 24 24">
+          <path fill="none" stroke-miterlimit="10"
+            stroke-width="2" d="M21 8.5l-9 9-9-9">
+          </path>
+        </svg>
+      <hr class="row-photo-divisor">
     </div>
-
-    <hr class="row-photo-divisor">
   <% end %>
 
 </main>
 
 <div class="main-container-overlay"></div>
+
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]', {
+    offset: 70
+  });
+</script>
