@@ -95,9 +95,10 @@ a:hover {
   z-index: 2;
 }
 
-.cover .logo {
+.cover-logo {
   width: 13rem;
   fill: $white;
+  pointer-events: none;
 
   @include media-breakpoint-up(md) {
     width: 20rem;
