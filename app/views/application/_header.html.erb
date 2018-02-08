@@ -21,14 +21,14 @@
 
             <% if params[:action] == "show" %>
               <a href="<%= request_photos_path(params[:request_id]) %>"
-                  class="dropdown-item">
+                  class="dropdown-item" data-turbolinks="false">
                 <%= inline_svg "ic_view_list_white_36px",
                   class: "menu-icon menu-icon-list" %>
                 list mode
               </a>
             <% else %>
               <a href="<%= request_random_photo_path(params[:request_id]) %>"
-                  class="dropdown-item">
+                  class="dropdown-item" data-turbolinks="false">
                 <%= inline_svg "ic_view_array_white_36px",
                   class: "menu-icon menu-icon-focus" %>
                 focus mode
