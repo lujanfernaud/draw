@@ -7,7 +7,7 @@ RSpec.feature "ListMode", vcr: VCR_OPTIONS, type: :feature do
   let(:last_photo)       { request.photos.last }
   let(:query_index_path) { request_photos_path(request_id: query) }
 
-  scenario "User visits list mode" do
+  scenario "user visits list mode" do
     visit_list_mode
 
     number_of_photos = request.results.size
@@ -17,7 +17,7 @@ RSpec.feature "ListMode", vcr: VCR_OPTIONS, type: :feature do
     expect(page).to have_css(".photo-navigation", count: number_of_photos)
   end
 
-  scenario "Up arrow is not visible on first photo" do
+  scenario "up arrow is not visible on first photo" do
     visit_list_mode
 
     within "##{first_photo.id}" do
@@ -25,7 +25,7 @@ RSpec.feature "ListMode", vcr: VCR_OPTIONS, type: :feature do
     end
   end
 
-  scenario "Down arrow is not visible on last photo" do
+  scenario "down arrow is not visible on last photo" do
     visit_list_mode
 
     within "##{last_photo.id}" do
