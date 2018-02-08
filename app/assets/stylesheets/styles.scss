@@ -336,7 +336,7 @@ a:hover {
 
 .photo--low-res {
   @include position-absolute;
-  filter: blur(0.85rem) grayscale(27%);
+  filter: blur(0.95rem) grayscale(50%);
   animation: .5s fade-in;
   z-index: 0;
 }
@@ -516,6 +516,7 @@ a:hover {
   // top: 0;
   // left: 0;
 }
+
 
 
 
