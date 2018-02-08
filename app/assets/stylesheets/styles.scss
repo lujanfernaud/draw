@@ -449,7 +449,6 @@ a:hover {
     align-items: center;
     right: .5rem;
     padding-bottom: 1.5rem;
-    animation: .5s fade-in;
     z-index: 10;
   }
 }
@@ -467,11 +466,34 @@ a:hover {
   font-size: 2.5rem;
   opacity: .5;
   transition: opacity .5s;
+  animation: blink 2s 1.5s backwards;
 
   &:hover,
   &:focus {
     text-decoration: none;
     opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: .5;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .5;
   }
 }
 
