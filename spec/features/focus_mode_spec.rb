@@ -21,6 +21,14 @@ RSpec.feature "ShowPhotos", vcr: VCR_OPTIONS, type: :feature do
     expect(page).to have_link("Unsplash")
   end
 
+  scenario "user visits next photo" do
+    visit_first_photo
+
+    find("a", class: "next-photo-link").click
+
+    expect(page).to have_current_path(second_photo_path)
+  end
+
   scenario "user selects 'list mode' from menu" do
     visit_first_photo
 
