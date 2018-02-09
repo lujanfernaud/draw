@@ -37,8 +37,10 @@ sizePhotoContainer = ->
       width  = photoWidth  * ratio
       height = photoHeight * ratio
 
+      # This seems to be needed as sometimes landscape images were pre-loading
+      # with a height bigger than what was available in the viewport.
       if height > maxHeight
-        newRatio = maxHeight / height
+        newRatio = maxHeight / photoHeight
         width    = photoWidth  * newRatio
         height   = photoHeight * newRatio
 
