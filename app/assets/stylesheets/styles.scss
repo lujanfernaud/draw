@@ -407,6 +407,7 @@ a:hover {
 .photo-credit--list {
   padding-top: .5rem;
   background-color: transparent;
+  animation: fade-in 1s;
 }
 
 .photo-credit--list:last-child {
