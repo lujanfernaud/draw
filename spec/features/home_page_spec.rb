@@ -10,9 +10,7 @@ RSpec.feature "Home page", type: :feature do
     query_name = "animal"
     create_request_for query_name
 
-    visit root_url
-    expect_page_to_be_home_page
-
+    visit_home
     click_on query_name
 
     expect(current_path).to match(/#{query_name}\/photos\/\d+/)
@@ -22,23 +20,32 @@ RSpec.feature "Home page", type: :feature do
     query_name = "animal"
     create_request_for query_name
 
-    visit root_url
-    expect_page_to_be_home_page
-
+    visit_home
     click_on query_name
 
     first_click_path = current_path.match(/#{query_name}\/photos\/\d+/)[0]
     expect(current_path).to match(first_click_path)
 
-    visit root_url
-    expect_page_to_be_home_page
-
+    visit_home
     click_on query_name
 
-    expect(current_path).not_to match(first_click_path)
+    second_click_path = current_path.match(/#{query_name}\/photos\/\d+/)[0]
+    expect(current_path).to match(second_click_path)
+
+    visit_home
+    click_on query_name
+
+    clicks_paths = [first_click_path, second_click_path]
+
+    expect([current_path, current_path]).not_to match(clicks_paths)
   end
 
   private
+
+    def visit_home
+      visit root_url
+      expect_page_to_be_home_page
+    end
 
     def expect_page_to_be_home_page
       expect(page).to have_text("draw")
