@@ -436,7 +436,7 @@ a:hover {
   display: none;
   position: absolute;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     display: flex;
     flex-direction: column;
     justify-content: center;
