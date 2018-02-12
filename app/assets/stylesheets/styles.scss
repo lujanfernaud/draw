@@ -217,6 +217,10 @@ a:hover {
   fill: $white;
 }
 
+.dropdown-item:active {
+  color: $dark;
+}
+
 .dropdown-item:active
 .menu-icon {
   fill: $dark;
