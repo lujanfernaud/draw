@@ -475,28 +475,6 @@ a:hover {
   }
 }
 
-@keyframes blink {
-  0% {
-    opacity: .5;
-  }
-
-  25% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: .5;
-  }
-
-  75% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: .5;
-  }
-}
-
 .back-to-top {
   position: absolute;
   bottom: .5rem;
@@ -563,6 +541,42 @@ a:hover {
 
   100% {
     opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: 1s fade-out;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: .5;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .5;
   }
 }
 

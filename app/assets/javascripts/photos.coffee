@@ -4,6 +4,7 @@ $(document).on "turbolinks:load", ->
   sizePhotoContainer()
   allowPhotoResize()
   menuBackgroundOverlay()
+  fadeOutWhenGoingBackHome()
 
 
 # -----------------------------------
@@ -135,3 +136,13 @@ menuBackgroundOverlay = ->
 
   $(".dropdown").on "hide.bs.dropdown", ->
     $(".main-container-overlay").toggleClass "main-container-overlay--visible"
+
+
+# ------------------------
+# fadeOutWhenGoingBackHome
+# ------------------------
+
+
+fadeOutWhenGoingBackHome = ->
+  $(".dropdown-home").click ->
+    $("body").addClass "fade-out"
