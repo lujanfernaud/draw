@@ -337,18 +337,7 @@ a:hover {
 .photo--low-res {
   @include position-absolute;
   filter: blur(0.95rem) grayscale(50%);
-  animation: .5s fade-in;
   z-index: 0;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 .cursor-resize {
@@ -514,6 +503,30 @@ a:hover {
 
 .min-height-100vh {
   min-height: 100vh;
+}
+
+
+
+
+//
+// Animations
+//
+
+
+
+
+.fade-in {
+  animation: .5s fade-in;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 
