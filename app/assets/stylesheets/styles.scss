@@ -253,6 +253,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .main-container-overlay {
@@ -411,7 +412,7 @@ a:hover {
   padding-bottom: 13vh;
 }
 
-.row-divisor:last-child {
+.row-divisor:nth-last-child(2) {
   display: none;
 }
 
@@ -488,6 +489,33 @@ a:hover {
 
   100% {
     opacity: .5;
+  }
+}
+
+.back-to-top {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  color: $light;
+  background-color: $dark-grey;
+  border-radius: 0.3rem;
+  opacity: .7;
+  transition: opacity .5s;
+  z-index: 10;
+
+  &:focus,
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.back-to-top__link {
+  display: block;
+  padding: 1rem;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
   }
 }
 
