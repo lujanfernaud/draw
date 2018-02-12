@@ -341,8 +341,12 @@ a:hover {
 
 .photo--low-res {
   @include position-absolute;
-  filter: blur(0.95rem) grayscale(50%);
+  filter: blur(0.95rem) grayscale(60%);
   z-index: 0;
+}
+
+.photo--low-res.fade-in {
+  animation: 1s fade-in;
 }
 
 .cursor-resize {
