@@ -83,16 +83,16 @@ resetContainerSizeWhenPhotoIsLoaded = (container, photo) ->
 allowPhotoResize = ->
   $(".photo-container").ready ->
     $(".photo").hover ->
-      rowPhoto  = $(this).parents(".row-photo")
-      container = $(this).parents(".photo-container")
       photo     = $(this)
+      rowPhoto  = photo.parents(".row-photo")
+      container = photo.parents(".photo-container")
       photoFullWidth = container.data("photo-width")
 
       if photoIsNotFullSize(photo, photoFullWidth)
         photo.toggleClass "cursor-resize"
         photo.on "click", ->
           toggleNavbar(rowPhoto)
-          photo.toggleClass "photo-max-height"
+          toggleElementsHeight(photo)
           scrollToPhotoTop(rowPhoto, photo)
 
 photoIsNotFullSize = (photo, photoFullWidth) ->
@@ -102,6 +102,10 @@ toggleNavbar = (rowPhoto) ->
   if focusModeIsActive(rowPhoto)
     $(".navbar").toggleClass "fixed-top"
     $(".main-container").toggleClass "pt-navbar"
+
+toggleElementsHeight = (photo) ->
+  photo.toggleClass "photo-max-height"
+  $(".main-container").toggleClass "min-height-100vh"
 
 scrollToPhotoTop = (rowPhoto, photo) ->
   if listModeIsActive(rowPhoto)
