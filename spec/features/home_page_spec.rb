@@ -13,7 +13,7 @@ RSpec.feature "Home page", type: :feature do
     visit_home
     click_on query_name
 
-    expect(current_path).to match(/#{query_name}\/photos\/\d+/)
+    expect(current_path).to match(/#{query_name}\/\d+/)
   end
 
   scenario "user clicks twice on photo category", vcr: VCR_OPTIONS do
@@ -23,13 +23,13 @@ RSpec.feature "Home page", type: :feature do
     visit_home
     click_on query_name
 
-    first_click_path = current_path.match(/#{query_name}\/photos\/\d+/)[0]
+    first_click_path = current_path.match(/#{query_name}\/\d+/)[0]
     expect(current_path).to match(first_click_path)
 
     visit_home
     click_on query_name
 
-    second_click_path = current_path.match(/#{query_name}\/photos\/\d+/)[0]
+    second_click_path = current_path.match(/#{query_name}\/\d+/)[0]
     expect(current_path).to match(second_click_path)
 
     visit_home

@@ -10,7 +10,7 @@ RSpec.feature "ShowPhotos", vcr: VCR_OPTIONS, type: :feature do
     request_photo_path(request_id: query, id: second_photo.id)
   end
 
-  let(:photo_path)       { /photos\/\d+/ }
+  let(:photo_path)       { /\/\d+/ }
   let(:query_index_path) { request_photos_path(request_id: query) }
 
   scenario "user visits photo" do

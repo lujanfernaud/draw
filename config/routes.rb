@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   resources :requests, path: "", only: :index do
     resource  :random_photo, only: :show
-    resources :photos, only: [:index, :show]
+    resources :photos, path: "", only: [:index, :show]
   end
 end
