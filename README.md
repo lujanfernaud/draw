@@ -1,24 +1,5 @@
-# README
+[![Maintainability](https://api.codeclimate.com/v1/badges/4d66fe3cfea98dc2c693/maintainability)](https://codeclimate.com/github/lujanfernaud/draw/maintainability)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Draw
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A daily selection of reference pictures to focus on drawing practice.
