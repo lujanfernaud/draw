@@ -21,7 +21,7 @@ gem 'inline_svg',                 '~> 1.3'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Bootstrap.
-gem 'bootstrap',                  '~> 4.0.0.beta'
+gem 'bootstrap',                  '~> 4.1', '>= 4.1.3'
 gem 'jquery-rails',               '4.3.1'
 
 group :development, :test do
