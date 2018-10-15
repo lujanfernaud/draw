@@ -42,6 +42,10 @@ group :development, :test do
   gem 'simplecov',                :require => false
   gem 'vcr',                      '~> 3.0', '>= 3.0.3'
   gem 'webmock',                  '~> 3.1'
+
+  # Security.
+  gem 'brakeman',                 :require => false
+  gem 'bundler-audit',            :require => false
 end
 
 group :development do
