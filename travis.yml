@@ -1,0 +1,42 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=d7f6b49602e06e8c7dd241af7277820ee3ea31cbad8bf03ac8bbeba55a21fd9e
+
+language: ruby
+
+rvm:
+  - 2.5.1
+
+sudo: required
+
+dist: trusty
+
+addons:
+  postgresql: 9.6
+
+services:
+  - postgresql
+
+cache:
+  bundler: true
+  yarn: true
+
+before_script:
+  - bundle install
+  - psql -c 'create database draw_test;' -U postgres
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+script:
+  - bundle exec brakeman
+  - bundle exec bundle-audit
+  - bundle exec rake db:migrate RAILS_ENV=test
+  - xvfb-run -a bundle exec rspec
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+test:
+  adapter: postgresql
+  database: draw_test
